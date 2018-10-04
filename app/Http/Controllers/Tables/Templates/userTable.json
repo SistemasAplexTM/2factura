@@ -1,0 +1,52 @@
+{
+    "routePrefix": "table",
+    "readSuffix": "data",
+    "crtNo": false,
+    "selectable": false,
+    "buttons": [
+        {
+            "type": "row",
+            "label": "Editar",
+            "icon": "el-icon-edit",
+            "class": "el-button el-button--primary el-button--small is-circle",
+            "event": "edit"
+        },
+        {
+            "type": "row",
+            "icon": "el-icon-delete",
+            "class": "el-button el-button--danger el-button--small is-circle",
+            "event": "destroy",
+            "confirmation" : true,
+            "message" : "This is your custom confirmation. Are you sure?"
+        }
+    ],
+    "columns": [
+        {
+            "label": "Name",
+            "name": "name",
+            "data": "name",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        },
+        {
+            "label": "Username",
+            "name": "username",
+            "data": "username",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        },
+        {
+            "label": "Email",
+            "name": "email",
+            "data": "email",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        }
+    ]
+}
