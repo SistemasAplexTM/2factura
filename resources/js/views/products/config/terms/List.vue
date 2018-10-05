@@ -2,9 +2,8 @@
   <vue-table class="box"
     path="api/adminProductMeta/init"
     :params="params"
-    @edit="edit"
     @destroy="destroy"
-    @updateCell="edit"
+    @updateCell="update"
     id="adminProductMeta"
     ref="adminProductMeta"
     />

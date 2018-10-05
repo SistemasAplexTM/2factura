@@ -30,13 +30,22 @@
 import Sticky from '@/components/Sticky'
 import { getAdminProduct } from '@/api/admin_product'
 import { saveConfig, getConfig } from '@/api/config'
+import vue2Dropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 export default {
-  components: { Sticky },
+  components: { Sticky, vueDropzone: vue2Dropzone },
   data() {
     return {
       options: [],
       values: [],
-      form: {}
+      form: {},
+      dropzoneOptions: {
+          url: 'https://httpbin.org/post',
+          thumbnailWidth: 150,
+          maxFilesize: 0.5,
+          addRemoveLinks: true,
+          headers: { "My-Awesome-Header": "header value" }
+      }
     }
   },
   created(){

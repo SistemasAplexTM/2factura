@@ -27,7 +27,8 @@
       "data": "value",
       "meta": [
         "searchable",
-        "sortable"
+        "sortable",
+        "clickable"
       ]
     },
     {

@@ -34,7 +34,8 @@
       "data": "description",
       "meta": [
         "searchable",
-        "sortable"
+        "sortable",
+        "clickable"
       ]
     }
   ]
