@@ -4,6 +4,7 @@
     :params="params"
     @edit="edit"
     @destroy="destroy"
+    @updateCell="edit"
     id="adminProductMeta"
     ref="adminProductMeta"
     />
@@ -12,6 +13,7 @@
 <script>
 import VueTable from '@/components/enso/vuedatatable/VueTable.vue';
 import { destroy } from '@/api/admin_product'
+import { updateCell } from '@/api/global'
 export default {
   components: { VueTable },
   props: ['id'],
@@ -22,14 +24,25 @@ export default {
   },
   computed: {
     params: function(){
-      return  {
+      return {
               type: this.id
-            }
+             }
     }
   },
   methods: {
-    edit: function(val){
-      // this.$store.dispatch('userEditing', val.dtRowId)
+    update: function(val){
+      var data = {
+        table: 'aplex_admin_product_metas',
+        column: val.column.name,
+        id: val.row.dtRowId,
+        data: val.data
+      }
+      updateCell(data).then((response) => {
+        this.reset()
+        this.$message.success('Actualizadocon éxito.');
+      }).catch((error) => {
+        this.$message.error('Error al actualizar.');
+      })
     },
     destroy: function(val){
       this.loading = true

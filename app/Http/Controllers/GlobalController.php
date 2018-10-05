@@ -8,22 +8,31 @@ use App\Config;
 
 class GlobalController extends Controller
 {
-    public function unique($table, $colum, $data, $id){
-      $answer = DB::table($table)
-      ->where([
-        [$colum, $data],
-        ['id', '<>', $id]
-      ]
-      )->first();
+  public function initialise(){
+    $data = Config::all();
+    return array('code' => 200, 'data' => $data);
+  }
 
-      $result = true;
-      if ($answer) {
-        $result = false;
-      }
-      return array('code' => 200, 'unique' => $result );
+  public function unique($table, $colum, $data, $id){
+    $answer = DB::table($table)
+    ->where([
+      [$colum, $data],
+      ['id', '<>', $id]
+    ]
+    )->first();
+
+    $result = true;
+    if ($answer) {
+      $result = false;
     }
-    public function initialise(){
-      $data = Config::all();
-      return array('code' => 200, 'data' => $data);
-    }
+    return array('code' => 200, 'unique' => $result );
+  }
+
+  public function updateCell(Request $request){
+    DB::table($request->table)
+    ->where('id', $request->id)
+    ->update([$request->column => $request->data]);
+    return array('code' => 200);
+  }
+
 }

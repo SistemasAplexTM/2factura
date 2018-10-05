@@ -13241,6 +13241,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -13430,6 +13432,11 @@ __WEBPACK_IMPORTED_MODULE_0__fortawesome_fontawesome_svg_core__["a" /* library *
                 this.$emit('clicked', { column: column, row: row });
             }
         },
+        updateCell: function updateCell(row, column, data) {
+            // if (column.meta.clickable) {
+            this.$emit('updateCell', { row: row, column: column, data: data });
+            // }
+        },
         selectPage: function selectPage(status) {
             var _this4 = this;
 
@@ -13580,29 +13587,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'TableCell',
+  name: 'TableCell',
 
-    props: {
-        column: {
-            type: Object,
-            required: true
-        },
-        value: {
-            type: null,
-            required: true
-        },
-        i18n: {
-            type: Function,
-            required: true
-        },
-        hiddenControls: {
-            type: Boolean,
-            default: false
-        }
+  props: {
+    column: {
+      type: Object,
+      required: true
+    },
+    value: {
+      type: null,
+      required: true
+    },
+    i18n: {
+      type: Function,
+      required: true
+    },
+    hiddenControls: {
+      type: Boolean,
+      default: false
     }
+  },
+  data: function data() {
+    return {
+      editing: false,
+      canceling: false,
+      valueImput: this.value
+    };
+  },
+
+  methods: {
+    click: function click() {
+      if (!this.canceling) {
+        this.editing = true;
+      }
+      this.canceling = false;
+      this.$emit('clicked');
+    },
+    cancel: function cancel() {
+      this.editing = false;
+      this.canceling = true;
+    },
+    update: function update() {
+      this.editing = false;
+      this.canceling = true;
+      this.$emit('updateCell', this.valueImput);
+    }
+  }
 });
 
 /***/ }),
@@ -13620,7 +13661,7 @@ var render = function() {
       class: { "is-clickable has-text-info": _vm.column.meta.clickable },
       on: {
         click: function($event) {
-          _vm.column.meta.clickable ? _vm.$emit("clicked") : null
+          _vm.column.meta.clickable ? _vm.click() : null
         }
       }
     },
@@ -13643,7 +13684,71 @@ var render = function() {
             ? _vm._t(_vm.column.name)
             : _vm.column.meta.translation
               ? _c("span", [_vm._v(_vm._s(_vm.i18n(_vm.value)))])
-              : _c("span", [_vm._v(_vm._s(_vm.value))])
+              : _vm.editing
+                ? _c(
+                    "span",
+                    [
+                      _c(
+                        "el-input",
+                        {
+                          attrs: {
+                            size: "small",
+                            "prefix-icon": "el-icon-edit",
+                            autofocus: ""
+                          },
+                          on: {
+                            keyup: function($event) {
+                              if (
+                                !("button" in $event) &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.update($event)
+                            }
+                          },
+                          model: {
+                            value: _vm.valueImput,
+                            callback: function($$v) {
+                              _vm.valueImput = $$v
+                            },
+                            expression: "valueImput"
+                          }
+                        },
+                        [
+                          _c(
+                            "template",
+                            { slot: "append" },
+                            [
+                              _c("el-button", {
+                                staticStyle: {
+                                  "background-color": "#67c23a !important",
+                                  color: "white !important"
+                                },
+                                attrs: { size: "small", icon: "el-icon-check" },
+                                on: { click: _vm.update }
+                              }),
+                              _vm._v(" "),
+                              _c("el-button", {
+                                attrs: { size: "small", icon: "el-icon-close" },
+                                on: { click: _vm.cancel }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  )
+                : _c("span", [_vm._v(_vm._s(_vm.value))])
     ],
     2
   )
@@ -13986,6 +14091,15 @@ var render = function() {
                           on: {
                             clicked: function($event) {
                               _vm.clicked(row, column)
+                            },
+                            updateCell: function($event) {
+                              var i = arguments.length,
+                                argsArray = Array(i)
+                              while (i--) argsArray[i] = arguments[i]
+                              _vm.updateCell.apply(
+                                void 0,
+                                [row, column].concat(argsArray)
+                              )
                             }
                           }
                         },
@@ -17013,7 +17127,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -17028,6 +17142,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_enso_vuedatatable_VueTable_vue__ = __webpack_require__(1635);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_enso_vuedatatable_VueTable_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_enso_vuedatatable_VueTable_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_admin_product__ = __webpack_require__(1634);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_global__ = __webpack_require__(1818);
 //
 //
 //
@@ -17039,6 +17154,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
@@ -17057,16 +17174,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   methods: {
-    edit: function edit(val) {
-      // this.$store.dispatch('userEditing', val.dtRowId)
+    update: function update(val) {
+      var _this = this;
+
+      var data = {
+        table: 'aplex_admin_product_metas',
+        column: val.column.name,
+        id: val.row.dtRowId,
+        data: val.data
+      };
+      Object(__WEBPACK_IMPORTED_MODULE_2__api_global__["a" /* updateCell */])(data).then(function (response) {
+        _this.reset();
+        _this.$message.success('Actualizadocon éxito.');
+      }).catch(function (error) {
+        _this.$message.error('Error al actualizar.');
+      });
     },
     destroy: function destroy(val) {
-      var _this = this;
+      var _this2 = this;
 
       this.loading = true;
       Object(__WEBPACK_IMPORTED_MODULE_1__api_admin_product__["b" /* destroy */])('term', val.dtRowId).then(function (response) {
-        _this.reset();
-        _this.loading = false;
+        _this2.reset();
+        _this2.loading = false;
       });
     },
     reset: function reset() {
@@ -17092,7 +17222,7 @@ var render = function() {
       params: _vm.params,
       id: "adminProductMeta"
     },
-    on: { edit: _vm.edit, destroy: _vm.destroy }
+    on: { edit: _vm.edit, destroy: _vm.destroy, updateCell: _vm.edit }
   })
 }
 var staticRenderFns = []
@@ -17357,7 +17487,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         var data = JSON.parse(data.value);
         _this2.values = data.taxonomies;
-        console.log(data.value);
       }).catch(function (error) {
         console.log(error);
         _this2.$message.error('Error al traer los datos de configuración actual.');
@@ -17518,6 +17647,24 @@ if (false) {
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-e232f1fe", module.exports)
   }
+}
+
+/***/ }),
+
+/***/ 1818:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = updateCell;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(23);
+
+
+function updateCell(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
+    url: 'api/global/updateCell',
+    method: 'put',
+    data: data
+  });
 }
 
 /***/ })

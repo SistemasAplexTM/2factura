@@ -55,7 +55,6 @@ export default {
       getConfig('product').then(({data}) => {
         var data = JSON.parse(data.value)
         this.values = data.taxonomies
-        console.log(data.value);
       }).catch((error) => {
         console.log(error);
         this.$message.error('Error al traer los datos de configuración actual.');

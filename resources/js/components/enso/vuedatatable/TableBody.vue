@@ -46,7 +46,9 @@
                 :hidden-controls="cascadesHiddenControls && idx === 0"
                 :column="column"
                 :value="row[column.name]"
-                @clicked="clicked(row, column)">
+                @clicked="clicked(row, column)"
+                @updateCell="updateCell(row,column, ...arguments)"
+                >
                 <span slot="hidden-controls"
                     class="hidden-controls"
                     v-if="cascadesHiddenControls && idx === 0"
@@ -297,6 +299,11 @@ export default {
             if (column.meta.clickable) {
                 this.$emit('clicked', { column, row });
             }
+        },
+        updateCell(row,column, data) {
+            // if (column.meta.clickable) {
+                this.$emit('updateCell', { row,column, data });
+            // }
         },
         selectPage(status) {
             this.body.data.forEach((row) => {

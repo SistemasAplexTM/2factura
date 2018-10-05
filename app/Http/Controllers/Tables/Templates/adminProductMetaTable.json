@@ -36,7 +36,8 @@
       "data": "code",
       "meta": [
         "searchable",
-        "sortable"
+        "sortable",
+        "clickable"
       ]
     }
   ]

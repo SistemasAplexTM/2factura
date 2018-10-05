@@ -25,15 +25,16 @@ Route::prefix('table')->as('table.')
   Route::get('data', 'users\UserController@data')->name('data');
 });
 
-Route::get('user/prueba', 'users\UserController@prueba');
-
-Route::get('user/all', 'users\UserController@all')->middleware('auth:api');
+Route::put('global/updateCell', 'GlobalController@updateCell');
 Route::get('initialise', 'GlobalController@initialise')->middleware('auth:api');
+Route::get('unique/{table}/{colum}/{data}/{id}', 'GlobalController@unique');
+
+Route::get('user/prueba', 'users\UserController@prueba');
+Route::get('user/all', 'users\UserController@all')->middleware('auth:api');
 Route::post('user/add', 'users\UserController@add');
 Route::delete('user/{id}', 'users\UserController@delete');
 Route::put('user/{id}', 'users\UserController@update');
 Route::get('user/{id}', 'users\UserController@byId');
-Route::get('unique/{table}/{colum}/{data}/{id}', 'GlobalController@unique');
 // Route::get('prueba', 'PruebaController@index');
 
 // Route::group(['middleware' => 'auth:api'], function () {
