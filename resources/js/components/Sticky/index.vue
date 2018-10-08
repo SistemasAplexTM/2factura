@@ -1,7 +1,7 @@
 <template>
   <div :style="{height:height+'px',zIndex:zIndex}">
     <div :class="className" :style="{top:stickyTop+'px',zIndex:zIndex,position:position,width:width,height:height+'px'}">
-      <span class="fl" style="font-size: 25px">{{ title }}</span>
+      <span class="fl" style="font-size: 25px; margin-left: 15px">{{ title }}</span>
       <slot>
         <div>sticky</div>
       </slot>
