@@ -22,7 +22,7 @@
         <icon-aplex name="shirt" :type="'lnr'" scale="1" class="icon-menu"/>
         <span slot="title">Productos</span>
       </el-menu-item>
-      <el-menu-item index="/roles">
+      <el-menu-item index="/prueba_impresion">
         <icon-aplex name="printer" :type="'lnr'" scale="1" class="icon-menu"/>
         <span slot="title">Informes</span>
       </el-menu-item>

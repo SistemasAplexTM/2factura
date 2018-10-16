@@ -18,6 +18,9 @@ class CreateAplexProductsTable extends Migration
             $table->string('code');
             $table->string('name');
             $table->string('reference');
+            $table->decimal('price_sale', 10, 0);
+            $table->decimal('cost', 10, 0);
+            $table->string('status', 30);
             $table->integer('parent');
             $table->timestamps();
         });

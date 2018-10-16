@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Config;
+use Session;
+
+//Includes WebClientPrint classes
+include_once(app_path() . '\WebClientPrint\WebClientPrint.php');
+use Neodynamic\SDK\Web\WebClientPrint;
 
 class GlobalController extends Controller
 {
@@ -33,6 +38,11 @@ class GlobalController extends Controller
     ->where('id', $request->id)
     ->update([$request->column => $request->data]);
     return array('code' => 200);
+  }
+
+  public function getUrlImpressInfo(){
+    return WebClientPrint::createScript(action('WebClientPrintController@processRequest'), action('DemoPrintFileController@printFile'), Session::getId());
+    // return WebClientPrint::createScript(action('WebClientPrintController@processRequest'), action('GlobalController@getUrlImpressInfo'), Session::getId());
   }
 
 }

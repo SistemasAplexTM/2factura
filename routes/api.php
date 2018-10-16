@@ -25,6 +25,7 @@ Route::prefix('table')->as('table.')
   Route::get('data', 'users\UserController@data')->name('data');
 });
 
+Route::get('global/getUrlImpressInfo', 'GlobalController@getUrlImpressInfo');
 Route::put('global/updateCell', 'GlobalController@updateCell');
 Route::get('initialise', 'GlobalController@initialise')->middleware('auth:api');
 Route::get('unique/{table}/{colum}/{data}/{id}', 'GlobalController@unique');
@@ -66,6 +67,13 @@ Route::prefix('adminProductMeta')->as('adminProductMeta.')
   Route::get('data', 'AplexAdminProductMetaController@data')->name('data');
 });
 
-
 Route::post('config/{key}', 'AplexConfigController@save');
 Route::get('config/{key}', 'AplexConfigController@get');
+
+Route::prefix('product')->as('product.')
+->group(function () {
+  Route::get('init', 'AplexProductController@init')->name('init');
+  Route::get('data', 'AplexProductController@data')->name('data');
+});
+Route::resource('product','AplexProductController')
+  ->except(['index', 'create', 'show']);

@@ -4,25 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Session;
+
+//Includes WebClientPrint classes
+include_once(app_path() . '\WebClientPrint\WebClientPrint.php');
+use Neodynamic\SDK\Web\WebClientPrint;
+
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
+    public function index(){
+
+        $wcppScript = WebClientPrint::createWcppDetectionScript(action('WebClientPrintController@processRequest'), Session::getId());
+
+        return view('index', ['wcppScript' => $wcppScript]);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
+    public function printersinfo(){
+
+        $wcpScript = WebClientPrint::createScript(action('WebClientPrintController@processRequest'), action('HomeController@printersinfo'), Session::getId());
+
+        return view('home.printersinfo', ['wcpScript' => $wcpScript]);
+
     }
+
+    public function samples(){
+        return view('home.samples');
+    }
+
 }

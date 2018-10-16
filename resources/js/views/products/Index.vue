@@ -1,30 +1,42 @@
 <template lang="html">
   <div class="">
-    <sticky :className="'sub-navbar draft'" title="Registrar producto">
-      <el-button size="small" type="primary">
-        Guardar
-      </el-button>
-      <el-button id="cancelButton" type="default" size="small" >Cancelar</el-button>
-    </sticky>
+    <el-row :gutter="15">
+      <el-col :span="24">
+        <router-link :to="{ path: 'productos/nuevo'}">
+          <el-button icon="el-icon-plus" type="success" size="small">Crear</el-button>
+        </router-link>
+      </el-col>
+    </el-row>
     <br>
     <el-row :gutter="15">
-        <el-col :span="20">
-
-        </el-col>
-        <el-col :span="4">
-
+        <el-col :span="24">
+          <vue-table class="box"
+            path="api/product/init"
+            @destroy="destroy"
+            @updateCell="update"
+            id="product"
+            ref="product"
+            />
         </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-import Sticky from '@/components/Sticky'
+import VueTable from '@/components/enso/vuedatatable/VueTable.vue'
 export default {
-  components: { Sticky },
+  components: { VueTable },
   data: function () {
     return {
-      
+
+    }
+  },
+  methods: {
+    update(){
+
+    },
+    destroy(){
+
     }
   }
 }

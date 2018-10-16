@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import VueTable from '@/components/enso/vuedatatable/VueTable.vue';
+import VueTable from '@/components/enso/vuedatatable/VueTable.vue'
 import { destroy } from '@/api/admin_product'
 import { updateCell } from '@/api/global'
 export default {

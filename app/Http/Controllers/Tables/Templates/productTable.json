@@ -1,0 +1,80 @@
+{
+  "routePrefix": "product",
+  "readSuffix": "data",
+  "crtNo": true,
+  "selectable": false,
+  "buttons": [
+    {
+      "type": "row",
+      "label": "Editar",
+      "icon": "el-icon-edit",
+      "class": "el-button el-button--primary el-button--small is-circle",
+      "event": "edit"
+    },
+    {
+      "type": "row",
+      "icon": "el-icon-delete",
+      "class": "el-button el-button--danger el-button--small is-circle",
+      "event": "destroy",
+      "confirmation" : true,
+      "message" : "This is your custom confirmation. Are you sure?"
+    }
+  ],
+  "columns": [
+    {
+      "label": "Código",
+      "name": "code",
+      "data": "code",
+      "meta": [
+        "searchable",
+        "sortable"
+      ]
+    },
+    {
+      "label": "Referencia",
+      "name": "reference",
+      "data": "reference",
+      "meta": [
+        "searchable",
+        "sortable"
+      ]
+    },
+    {
+      "label": "Nombre",
+      "name": "name",
+      "data": "name",
+      "meta": [
+        "searchable",
+        "sortable"
+      ]
+    },
+    {
+      "label": "Precio de venta",
+      "name": "price_sale",
+      "data": "price_sale",
+      "align": "right",
+      "money": {
+          "symbol": "$",
+          "decimal": ",",
+          "thousand": ".",
+          "precision": 2,
+          "format": "%s%v"
+      },
+      "meta": [ "searchable", "sortable"]
+    },
+    {
+      "label": "Costo",
+      "name": "cost",
+      "data": "cost",
+      "align": "right",
+      "money": {
+          "symbol": "$",
+          "decimal": ",",
+          "thousand": ".",
+          "precision": 2,
+          "format": "%s%v"
+      },
+      "meta": [ "searchable", "sortable"]
+    }
+  ]
+}

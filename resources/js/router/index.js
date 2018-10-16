@@ -36,6 +36,11 @@ export const constantRouterMap = [
       {
         path: 'productos',
         meta: {title: 'Productos'},
+        component: () => import('@/views/products/Index')
+      },
+      {
+        path: 'productos/nuevo',
+        meta: {title: 'Productos'},
         component: () => import('@/views/products/form/Index')
       },
       {
@@ -54,9 +59,9 @@ export const constantRouterMap = [
         component: () => import('@/views/users/Index')
       },
       {
-        path: 'img',
-        meta: {title: 'Imagen'},
-        component: () => import('@/views/users/Img')
+        path: 'prueba_impresion',
+        meta: {title: 'Prueba impresión'},
+        component: () => import('@/views/reports/Index')
       },
       {
         path: 'administracion/:type',

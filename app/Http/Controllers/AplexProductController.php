@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\AplexProduct;
 use Illuminate\Http\Request;
+use LaravelEnso\VueDatatable\app\Traits\Datatable;
+use App\Http\Controllers\Tables\Builders\ProductTable;
 
 class AplexProductController extends Controller
 {
+    use Datatable;
+    protected $tableClass = ProductTable::class;
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +39,15 @@ class AplexProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        AplexProduct::create([
+          'code' => $request->code,
+          'name' => $request->name,
+          'reference' => $request->ref,
+          'price_sale' => $request->price_sale,
+          'cost' => $request->cost,
+          'status' => 'creado'
+        ]);
+        return array('code' => 200);
     }
 
     /**

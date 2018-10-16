@@ -4,6 +4,8 @@ import Vue from 'vue'
 window.axios = require('axios');
 window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + getToken();
 
+window.$ = require("jquery");
+
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui';
