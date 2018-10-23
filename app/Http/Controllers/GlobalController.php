@@ -41,8 +41,8 @@ class GlobalController extends Controller
   }
 
   public function getUrlImpressInfo(){
-    return WebClientPrint::createScript(action('WebClientPrintController@processRequest'), action('DemoPrintFileController@printFile'), Session::getId());
-    // return WebClientPrint::createScript(action('WebClientPrintController@processRequest'), action('GlobalController@getUrlImpressInfo'), Session::getId());
+    // return WebClientPrint::createScript(action('WebClientPrintController@processRequest'), action('DemoPrintFileController@printFile'), Session::getId());
+    return WebClientPrint::createScript(action('WebClientPrintController@processRequest'), action('GlobalController@getUrlImpressInfo'), Session::getId());
   }
 
 }

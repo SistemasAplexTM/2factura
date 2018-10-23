@@ -83,7 +83,7 @@ class DemoPrintFileController extends Controller
                     $myfile->printOrientation = PrintOrientation::Portrait;
                     $myfile->fontName = 'Arial';
                     $myfile->fontSizeInPoints = 12;
-                    //$myfile->textColor = '#ff00ff';
+                    $myfile->textColor = '#ff00ff';
                     //$myfile->textAlignment = TextAlignment::Center;
                     //$myfile->fontBold = true;
                     //$myfile->fontItalic = true;

@@ -13,6 +13,7 @@
           <vue-table class="box"
             path="api/product/init"
             @destroy="destroy"
+            @print="print"
             @updateCell="update"
             id="product"
             ref="product"
@@ -32,6 +33,9 @@ export default {
     }
   },
   methods: {
+    print(val){
+      alert('Imprimiendo ' + val.dtRowId)
+    },
     update(){
 
     },

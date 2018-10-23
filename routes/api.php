@@ -25,6 +25,7 @@ Route::prefix('table')->as('table.')
   Route::get('data', 'users\UserController@data')->name('data');
 });
 
+Route::get('global/getImpressInfo', 'GlobalController@printersinfo');
 Route::get('global/getUrlImpressInfo', 'GlobalController@getUrlImpressInfo');
 Route::put('global/updateCell', 'GlobalController@updateCell');
 Route::get('initialise', 'GlobalController@initialise')->middleware('auth:api');
@@ -67,7 +68,7 @@ Route::prefix('adminProductMeta')->as('adminProductMeta.')
   Route::get('data', 'AplexAdminProductMetaController@data')->name('data');
 });
 
-Route::post('config/{key}', 'AplexConfigController@save');
+Route::post('config/{key}/{type}/{simple?}', 'AplexConfigController@save');
 Route::get('config/{key}', 'AplexConfigController@get');
 
 Route::prefix('product')->as('product.')
@@ -75,5 +76,10 @@ Route::prefix('product')->as('product.')
   Route::get('init', 'AplexProductController@init')->name('init');
   Route::get('data', 'AplexProductController@data')->name('data');
 });
+
+Route::get('DemoPrintFile', 'DemoPrintFileController@printFile');
+Route::get('product/print', 'AplexProductController@print');
+Route::get('product/urlPrint', 'AplexProductController@urlPrint');
+Route::post('product/createFile', 'AplexProductController@createFile');
 Route::resource('product','AplexProductController')
-  ->except(['index', 'create', 'show']);
+  ->except(['index', 'create']);

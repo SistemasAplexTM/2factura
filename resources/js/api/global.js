@@ -15,6 +15,13 @@ export function getUrlImpressInfo() {
   })
 }
 
+export function getImpressInfo(url) {
+  return request({
+    url,
+    method: 'get'
+  })
+}
+
 export function getJsWebClientPrint(url) {
   return request({
     url,

@@ -57,18 +57,17 @@ export default {
       getJsWebClientPrint(data)
       .then(({data}) => {
         this.dataPrueba = data.substring(21)
-      })
-      .catch((error) => { console.log(error) })
+      }).catch((error) => { console.log(error) })
     }).catch((error) => { console.log(error) })
   },
   methods: {
     exePrueba(){
       var tales = eval(this.dataPrueba)
-      tales.getPrintersInfo()
+      tales.getPrinters()
     },
     exePrint(){
       var tales = eval(this.dataPrueba)
-      tales.print('useDefaultPrinter=0&printerName=Microsoft XPS Document Writer&filetype=TXT')
+      tales.print('useDefaultPrinter=1&printerName=null&filetype=TXT')
     },
   }
 }

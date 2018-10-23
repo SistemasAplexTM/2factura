@@ -39,6 +39,11 @@ export const constantRouterMap = [
         component: () => import('@/views/products/Index')
       },
       {
+        path: 'productos/imprimir',
+        meta: {title: 'Producto'},
+        component: () => import('@/views/products/PrintProduct')
+      },
+      {
         path: 'productos/nuevo',
         meta: {title: 'Productos'},
         component: () => import('@/views/products/form/Index')
@@ -47,6 +52,11 @@ export const constantRouterMap = [
         path: 'configuracion',
         meta: {title: 'Configuración'},
         component: () => import('@/views/settings/Index')
+      },
+      {
+        path: 'general',
+        meta: {title: 'General'},
+        component: () => import('@/views/settings/general/Index')
       },
       {
         path: 'configuracion_productos',

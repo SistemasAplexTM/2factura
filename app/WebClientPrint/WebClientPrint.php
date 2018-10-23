@@ -765,11 +765,12 @@ class PrintRotation
     const Rot270 = 3;
 
     public static function parse($val){
+      return 0;
         if($val === 'None') return 0;
         if($val === 'Rot90') return 1;
         if($val === 'Rot180') return 2;
         if($val === 'Rot270') return 3;
-        throw new Exception('Invalid value');
+        throw new Exception('Invalid value'. $val);
     }
 }
 

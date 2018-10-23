@@ -1,8 +1,11 @@
 import request from '@/utils/request'
 
-export function saveConfig(key,data) {
+export function saveConfig(key, type, simple,data) {
+  if (simple) {
+    data = {type: data}
+  }
   return request({
-    url: 'api/config/' + key,
+    url: 'api/config/' + key + '/' + type + '/' + simple,
     method: 'post',
     data
   })

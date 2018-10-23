@@ -6,6 +6,13 @@
   "buttons": [
     {
       "type": "row",
+      "label": "Imprimir",
+      "icon": "el-icon-printer",
+      "class": "el-button el-button--default el-button--small is-circle",
+      "event": "print"
+    },
+    {
+      "type": "row",
       "label": "Editar",
       "icon": "el-icon-edit",
       "class": "el-button el-button--primary el-button--small is-circle",

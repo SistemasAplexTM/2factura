@@ -2,7 +2,7 @@
   <div class="">
     <el-row :gutter="12">
       <el-col :span="6">
-        <router-link :to="{ path: '' }">
+        <router-link :to="{ path: 'general' }">
           <el-card shadow="hover" class="card-config">
             <h1>
               General
