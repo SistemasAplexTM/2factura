@@ -8,19 +8,107 @@
 >>
 endobj
 4 0 obj
-<</Length 178>>
+<</Length 2653>>
 stream
 0.20 w
 0 G
 q
 q BT 0 g 40.00 712.00 Td
-0 -27.00 Td
-0.290 0.290 0.290 rg
-/F1 22.50 Tf (123) Tj
+204 -24.00 Td
+0.000 g
+/F10 24.00 Tf (Bienvenido) Tj
 ET Q
-q BT 0 g 40.00 685.00 Td
-0 -14.40 Td
-/F1 12.00 Tf (Producto de prueba) Tj
+q BT 0 g 40.00 687.06 Td
+217.62 -12.00 Td
+/F9 12.00 Tf ({nom_consignee}) Tj
+ET Q
+q BT 0 g 40.00 674.13 Td
+10.56 -12.00 Td
+/F9 12.00 Tf (Usted se ha registrado a nuestro servicio de casillero, a partir de ahora cuenta con una dirección física en) Tj
+5.4 -12.00 Td
+/F9 12.00 Tf ({pais_agencia}, sus compras o encomiendas que deba realizar, debe dirigirlos a la siguiente dirección:) Tj
+ET Q
+q BT 0 g 40.00 649.19 Td
+234.48 -12.00 Td
+/F10 12.00 Tf (Dirección:) Tj
+/F10 12.00 Tf ( {dir_agencia}.) Tj
+ET Q
+q BT 0 g 40.00 637.19 Td
+240.12 -12.00 Td
+/F10 12.00 Tf (Ciudad:) Tj
+/F10 12.00 Tf ( {ciudad_agencia}) Tj
+ET Q
+q BT 0 g 40.00 625.19 Td
+241.44 -12.00 Td
+/F10 12.00 Tf (Estado:) Tj
+/F10 12.00 Tf ( {estado_agencia}) Tj
+ET Q
+q BT 0 g 40.00 613.19 Td
+223.56 -12.00 Td
+/F10 12.00 Tf (Código Postal:) Tj
+/F10 12.00 Tf ( {zip_agencia}) Tj
+ET Q
+q BT 0 g 40.00 600.25 Td
+110.46 -12.00 Td
+/F9 12.00 Tf (El código de casillero asignado a usted es: {pobox_consignee}) Tj
+ET Q
+q BT 0 g 40.00 587.31 Td
+167.94 -12.00 Td
+/F9 12.00 Tf (-----------------------------------------------) Tj
+ET Q
+q BT 0 g 40.00 575.31 Td
+176.82 -12.00 Td
+/F9 12.00 Tf (Sus datos de acceso al sistema son:) Tj
+ET Q
+q BT 0 g 40.00 562.38 Td
+246.78 -12.00 Td
+/F10 12.00 Tf (Link:) Tj
+/F10 12.00 Tf ( {url_principal}/) Tj
+/F10 12.00 Tf ({id_agencia}) Tj
+ET Q
+q BT 0 g 40.00 550.38 Td
+238.74 -12.00 Td
+/F10 12.00 Tf (Usuario:) Tj
+/F10 12.00 Tf ( {email_consignee}) Tj
+ET Q
+q BT 0 g 40.00 538.38 Td
+229.5 -12.00 Td
+/F10 12.00 Tf (Contraseña:) Tj
+/F10 12.00 Tf ( {pass_consignee}) Tj
+ET Q
+q BT 0 g 40.00 524.50 Td
+167.94 -12.00 Td
+/F9 12.00 Tf (-----------------------------------------------) Tj
+ET Q
+q BT 0 g 40.00 511.56 Td
+95.28 -12.00 Td
+/F9 12.00 Tf (Los envíos a {pais_consignee}, se realizarán a la siguiente dirección:) Tj
+ET Q
+q BT 0 g 40.00 498.63 Td
+234.48 -12.00 Td
+/F10 12.00 Tf (Dirección:) Tj
+/F10 12.00 Tf ( {dir_consignee}.) Tj
+ET Q
+q BT 0 g 40.00 486.63 Td
+240.12 -12.00 Td
+/F10 12.00 Tf (Ciudad:) Tj
+/F10 12.00 Tf ( {ciu_consignee}) Tj
+ET Q
+q BT 0 g 40.00 474.63 Td
+199.98 -12.00 Td
+/F10 12.00 Tf (Departamento / Estado:) Tj
+/F10 12.00 Tf ( {depto_consignee}) Tj
+ET Q
+q BT 0 g 40.00 462.63 Td
+223.56 -12.00 Td
+/F10 12.00 Tf (Código Postal:) Tj
+/F10 12.00 Tf ( {zip_consignee}) Tj
+ET Q
+q BT 0 g 40.00 448.75 Td
+14.04 -12.00 Td
+/F9 12.00 Tf (Los alertas del sistema se enviarán al email: {email_consignee} El teléfono de contacto con el cual nos) Tj
+18.9 -12.00 Td
+/F9 12.00 Tf (comunicaremos en caso de ser requerido será: Movil: {cel_consignee} o Fijo: {tel_consignee}.) Tj
 ET Q
 Q
 endstream
@@ -121,7 +209,7 @@ endobj
 18 0 obj
 <<
 /Producer (jsPDF 1.3.2 2016-09-30T20:33:18.867Z:jameshall)
-/CreationDate (D:20181023102224-05'00')
+/CreationDate (D:20181024160830-05'00')
 >>
 endobj
 19 0 obj
@@ -135,25 +223,25 @@ endobj
 xref
 0 20
 0000000000 65535 f 
-0000000345 00000 n 
-0000001639 00000 n 
+0000002821 00000 n 
+0000004115 00000 n 
 0000000009 00000 n 
 0000000118 00000 n 
-0000000402 00000 n 
-0000000492 00000 n 
-0000000587 00000 n 
-0000000685 00000 n 
-0000000787 00000 n 
-0000000875 00000 n 
-0000000969 00000 n 
-0000001066 00000 n 
-0000001167 00000 n 
-0000001260 00000 n 
-0000001352 00000 n 
-0000001446 00000 n 
-0000001544 00000 n 
-0000001875 00000 n 
-0000001996 00000 n 
+0000002878 00000 n 
+0000002968 00000 n 
+0000003063 00000 n 
+0000003161 00000 n 
+0000003263 00000 n 
+0000003351 00000 n 
+0000003445 00000 n 
+0000003542 00000 n 
+0000003643 00000 n 
+0000003736 00000 n 
+0000003828 00000 n 
+0000003922 00000 n 
+0000004020 00000 n 
+0000004351 00000 n 
+0000004472 00000 n 
 trailer
 <<
 /Size 20
@@ -161,5 +249,5 @@ trailer
 /Info 18 0 R
 >>
 startxref
-2100
+4576
 %%EOF

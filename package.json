@@ -37,8 +37,10 @@
         "v-click-outside": "^2.0.1",
         "v-tooltip": "^2.0.0-rc.33",
         "vue-awesome": "^3.1.2",
+        "vue-quill-editor": "^3.0.6",
         "vue-router": "^3.0.1",
         "vue2-dropzone": "^3.5.2",
+        "vueditor": "^0.3.1",
         "vuex": "^3.0.1"
     }
 }

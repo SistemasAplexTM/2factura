@@ -113,6 +113,18 @@
           </el-card>
         </router-link>
       </el-col>
+      <el-col :span="6">
+        <router-link :to="{ path: 'configuracion/formato_impresion' }">
+          <el-card shadow="hover" class="card-config">
+            <h1>
+              Formato de impresión
+              <icon-aplex name="file-empty" scale="1.5" :type="'lnr'" class="fr"/>
+            </h1>
+            <hr>
+            <p>Configure un formato de impresión de prueba para la implementación de la nueva manera de imprimir.</p>
+          </el-card>
+        </router-link>
+      </el-col>
     </el-row>
   </div>
 </template>

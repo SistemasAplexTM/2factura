@@ -1,18 +1,18 @@
 webpackJsonp([18],{
 
-/***/ 1625:
+/***/ 1621:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(1832)
+  __webpack_require__(1745)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(1834)
+var __vue_script__ = __webpack_require__(1747)
 /* template */
-var __vue_template__ = __webpack_require__(1835)
+var __vue_template__ = __webpack_require__(1751)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -29,7 +29,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/views/reports/Index.vue"
+Component.options.__file = "resources/js/views/products/PrintProduct.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -38,9 +38,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5a44c0f3", Component.options)
+    hotAPI.createRecord("data-v-3fbbd27e", Component.options)
   } else {
-    hotAPI.reload("data-v-5a44c0f3", Component.options)
+    hotAPI.reload("data-v-3fbbd27e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -52,65 +52,94 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 1723:
+/***/ 1725:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["d"] = updateCell;
-/* harmony export (immutable) */ __webpack_exports__["c"] = getUrlImpressInfo;
-/* harmony export (immutable) */ __webpack_exports__["a"] = getImpressInfo;
-/* harmony export (immutable) */ __webpack_exports__["b"] = getJsWebClientPrint;
+/* harmony export (immutable) */ __webpack_exports__["b"] = saveConfig;
+/* harmony export (immutable) */ __webpack_exports__["a"] = getConfig;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(23);
 
 
-function updateCell(data) {
+function saveConfig(key, type, simple, data) {
+  if (simple) {
+    data = { type: data };
+  }
   return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/global/updateCell',
-    method: 'put',
+    url: 'api/config/' + key + '/' + type + '/' + simple,
+    method: 'post',
     data: data
   });
 }
 
-function getUrlImpressInfo() {
+function getConfig(key) {
   return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/global/getUrlImpressInfo',
-    method: 'get'
-  });
-}
-
-function getImpressInfo(url) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: url,
-    method: 'get'
-  });
-}
-
-function getJsWebClientPrint(url) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: url,
+    url: 'api/config/' + key,
     method: 'get'
   });
 }
 
 /***/ }),
 
-/***/ 1832:
+/***/ 1727:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = addProduct;
+/* harmony export (immutable) */ __webpack_exports__["d"] = urlPrint;
+/* harmony export (immutable) */ __webpack_exports__["c"] = print;
+/* harmony export (immutable) */ __webpack_exports__["b"] = byId;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(23);
+
+
+function addProduct(data) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
+    url: 'api/product',
+    method: 'post',
+    data: data
+  });
+}
+
+function urlPrint() {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
+    url: 'api/product/urlPrint',
+    method: 'get'
+  });
+}
+
+function print(url) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
+    url: url,
+    method: 'get'
+  });
+}
+
+function byId(id) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
+    url: 'api/product/' + id,
+    method: 'get'
+  });
+}
+
+/***/ }),
+
+/***/ 1745:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1833);
+var content = __webpack_require__(1746);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("3987c88b", content, false, {});
+var update = __webpack_require__(8)("51847bb7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5a44c0f3\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Index.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5a44c0f3\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Index.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3fbbd27e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PrintProduct.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3fbbd27e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PrintProduct.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -121,7 +150,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 1833:
+/***/ 1746:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -129,39 +158,20 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 1834:
+/***/ 1747:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_global__ = __webpack_require__(1723);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_product__ = __webpack_require__(1727);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_config__ = __webpack_require__(1725);
 //
 //
 //
@@ -174,61 +184,107 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-var clientPrinters = null;
 
-var wcppGetPrintersTimeout_ms = 10000; //10 sec
-var wcppGetPrintersTimeoutStep_ms = 500; //0.5 sec
-function wcpGetPrintersOnSuccess() {
-  // Display client installed printers
-  if (arguments[0].length > 0) {
-    clientPrinters = JSON.parse(arguments[0]);
-  } else {
-    alert("No printers are installed in your system.");
-  }
-}
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      dataPrueba: '',
-      print: '',
-      prints: clientPrinters
+      query: '',
+      url: '',
+      printer_product: '',
+      format_print: '',
+      product: []
     };
   },
   created: function created() {
     var _this = this;
 
-    Object(__WEBPACK_IMPORTED_MODULE_0__api_global__["c" /* getUrlImpressInfo */])().then(function (_ref) {
+    Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["b" /* byId */])(1).then(function (_ref) {
       var data = _ref.data;
 
-      Object(__WEBPACK_IMPORTED_MODULE_0__api_global__["b" /* getJsWebClientPrint */])(data).then(function (_ref2) {
-        var data = _ref2.data;
+      _this.product = data;
+    }).catch(function (error) {
+      console.log(error);
+    });
 
-        _this.dataPrueba = data.substring(21);
-      }).catch(function (error) {
-        console.log(error);
-      });
+    Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["d" /* urlPrint */])().then(function (_ref2) {
+      var data = _ref2.data;
+
+      _this.url = data;
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+    Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* getConfig */])('product_printer').then(function (_ref3) {
+      var data = _ref3.data;
+
+      _this.printer_product = data.value;
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+    Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* getConfig */])('test_format_print').then(function (_ref4) {
+      var data = _ref4.data;
+
+      _this.format_print = data.value;
     }).catch(function (error) {
       console.log(error);
     });
   },
 
   methods: {
-    exePrueba: function exePrueba() {
-      var tales = eval(this.dataPrueba);
-      tales.getPrinters();
-    },
-    exePrint: function exePrint() {
-      var tales = eval(this.dataPrueba);
-      tales.print('useDefaultPrinter=1&printerName=null&filetype=TXT');
+    aPDF: function aPDF() {
+      var me = this;
+      var pdf = new jsPDF('p', 'pt', 'letter');
+      // var source = $('#card')[0];
+      var source = me.format_print;
+      // var source = Test;
+
+      var specialElementHandlers = {
+        '#bypassme': function bypassme(element, renderer) {
+          return true;
+        }
+      };
+      var margins = {
+        top: 80,
+        bottom: 60,
+        left: 40,
+        width: 522
+      };
+
+      pdf.fromHTML(source, margins.left, // x coord
+      margins.top, { // y coord
+        'width': margins.width,
+        'elementHandlers': specialElementHandlers
+      }, function (dispose) {
+        var tales = pdf.output('datauristring');
+        $.ajax({
+          type: "POST",
+          url: "api/product/createFile",
+          data: { base64ImageContent: tales },
+          success: function success(name) {
+            var _this2 = this;
+
+            Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["c" /* print */])(me.url).then(function (_ref5) {
+              var data = _ref5.data;
+
+              _this2.query = data.substring(21);
+              var exe = eval(_this2.query);
+              exe.print('useDefaultPrinter=0&printerName=' + me.printer_product + '&printRotation=None&fileName=' + name);
+            }).catch(function (error) {
+              console.log(error);
+            });
+          }
+        });
+      }, margins);
     }
   }
 });
 
 /***/ }),
 
-/***/ 1835:
+/***/ 1751:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -239,81 +295,27 @@ var render = function() {
     "div",
     {},
     [
-      _c(
-        "el-row",
-        [
-          _c("el-col", { attrs: { span: 24 } }, [
-            _c("h1", [_vm._v("Acá vamos a imprimir")])
-          ])
-        ],
-        1
-      ),
+      _c("div", { attrs: { id: "card" } }, [
+        _c("h1", { staticStyle: { "font-size": "30px" } }, [
+          _vm._v(_vm._s(_vm.product.code))
+        ]),
+        _vm._v(" "),
+        _c("h2", [_vm._v(_vm._s(_vm.product.name))])
+      ]),
       _vm._v(" "),
       _c(
-        "el-row",
-        { attrs: { gutter: 14 } },
-        [
-          _c(
-            "el-col",
-            { attrs: { span: 12 } },
-            [
-              _c("el-button", { on: { click: _vm.exePrueba } }, [
-                _vm._v("Impresoras...")
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c(
-                "el-select",
-                {
-                  attrs: { placeholder: "Select" },
-                  model: {
-                    value: _vm.print,
-                    callback: function($$v) {
-                      _vm.print = $$v
-                    },
-                    expression: "print"
-                  }
-                },
-                _vm._l(_vm.prints, function(item) {
-                  return _c("el-option", {
-                    key: item.name,
-                    attrs: { label: item.name, value: item.name }
-                  })
-                })
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "el-col",
-            { attrs: { span: 12 } },
-            [
-              _c("el-button", { on: { click: _vm.exePrint } }, [
-                _vm._v("Imprimir")
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("iframe", {
-                staticStyle: { width: "100%", height: "500px" },
-                attrs: {
-                  src:
-                    "//docs.google.com/gview?url=http://webclientprintphp.azurewebsites.net/files/LoremIpsum.pdf&embedded=true",
-                  frameborder: "0"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      )
+        "el-button",
+        {
+          on: {
+            click: function($event) {
+              _vm.aPDF()
+            }
+          }
+        },
+        [_vm._v("IMPRIMIR")]
+      ),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "img-out" } })
     ],
     1
   )
@@ -324,7 +326,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5a44c0f3", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-3fbbd27e", module.exports)
   }
 }
 

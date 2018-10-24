@@ -1,0 +1,13 @@
+<div id="card">
+  <h1>Esta impresión se está haciendo desde un componente esterno.</h1>
+  <!-- <h1 style="font-size: 30px">{{ product.code }}</h1>
+  <h2>{{ product.name }}</h2> -->
+</div>
+<script>
+
+let res = $('#card')[0]
+console.log(res);
+export function hello() {
+  return res;
+}
+</script>

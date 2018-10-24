@@ -54,6 +54,11 @@ export const constantRouterMap = [
         component: () => import('@/views/settings/Index')
       },
       {
+        path: 'configuracion/formato_impresion',
+        meta: {title: 'Formato de impresión'},
+        component: () => import('@/views/settings/TestFormatPrint')
+      },
+      {
         path: 'general',
         meta: {title: 'General'},
         component: () => import('@/views/settings/general/Index')

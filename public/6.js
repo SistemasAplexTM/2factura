@@ -1,24 +1,25 @@
 webpackJsonp([6],{
 
-/***/ 1620:
+/***/ 1616:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(1744)
+  __webpack_require__(1728)
+  __webpack_require__(1730)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(1746)
+var __vue_script__ = __webpack_require__(1733)
 /* template */
-var __vue_template__ = __webpack_require__(1747)
+var __vue_template__ = __webpack_require__(1734)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-72911c7d"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -29,7 +30,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/views/products/PrintProduct.vue"
+Component.options.__file = "resources/js/views/login/index.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -38,9 +39,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3fbbd27e", Component.options)
+    hotAPI.createRecord("data-v-72911c7d", Component.options)
   } else {
-    hotAPI.reload("data-v-3fbbd27e", Component.options)
+    hotAPI.reload("data-v-72911c7d", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -52,94 +53,23 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 1724:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = saveConfig;
-/* harmony export (immutable) */ __webpack_exports__["a"] = getConfig;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(23);
-
-
-function saveConfig(key, type, simple, data) {
-  if (simple) {
-    data = { type: data };
-  }
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/config/' + key + '/' + type + '/' + simple,
-    method: 'post',
-    data: data
-  });
-}
-
-function getConfig(key) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/config/' + key,
-    method: 'get'
-  });
-}
-
-/***/ }),
-
-/***/ 1726:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = addProduct;
-/* harmony export (immutable) */ __webpack_exports__["d"] = urlPrint;
-/* harmony export (immutable) */ __webpack_exports__["c"] = print;
-/* harmony export (immutable) */ __webpack_exports__["b"] = byId;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(23);
-
-
-function addProduct(data) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/product',
-    method: 'post',
-    data: data
-  });
-}
-
-function urlPrint() {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/product/urlPrint',
-    method: 'get'
-  });
-}
-
-function print(url) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: url,
-    method: 'get'
-  });
-}
-
-function byId(id) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/product/' + id,
-    method: 'get'
-  });
-}
-
-/***/ }),
-
-/***/ 1744:
+/***/ 1728:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1745);
+var content = __webpack_require__(1729);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("51847bb7", content, false, {});
+var update = __webpack_require__(8)("1b9854e0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3fbbd27e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PrintProduct.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3fbbd27e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PrintProduct.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72911c7d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72911c7d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -150,7 +80,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 1745:
+/***/ 1729:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -158,20 +88,68 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "/* reset element-ui css */\n.login-container .el-input {\n  display: inline-block;\n  height: 47px;\n  width: 85%;\n}\n.login-container .el-input input {\n    background: transparent;\n    border: 0px;\n    -webkit-appearance: none;\n    border-radius: 0px;\n    padding: 12px 5px 12px 15px;\n    color: #eee;\n    height: 47px;\n}\n.login-container .el-input input:-webkit-autofill {\n      -webkit-box-shadow: 0 0 0px 1000px #2d3a4b inset !important;\n      -webkit-text-fill-color: #fff !important;\n}\n.login-container .el-form-item {\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  background: rgba(0, 0, 0, 0.1);\n  border-radius: 5px;\n  color: #454545;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 1746:
+/***/ 1730:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(1731);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("2b24bb18", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72911c7d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./index.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72911c7d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 1731:
+/***/ (function(module, exports, __webpack_require__) {
+
+var escape = __webpack_require__(89);
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.login-container[data-v-72911c7d] {\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  background-image: url(" + escape(__webpack_require__(1732)) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n.login-container .login-form[data-v-72911c7d] {\n    position: absolute;\n    left: 0;\n    right: 0;\n    width: 450px;\n    padding: 35px 35px 15px 35px;\n    margin: 10% auto;\n}\n.login-container .tips[data-v-72911c7d] {\n    font-size: 14px;\n    color: #fff;\n    margin-bottom: 10px;\n}\n.login-container .tips span[data-v-72911c7d]:first-of-type {\n      margin-right: 16px;\n}\n.login-container .svg-container[data-v-72911c7d] {\n    padding: 6px 5px 6px 15px;\n    color: #889aa4;\n    vertical-align: middle;\n    width: 30px;\n    display: inline-block;\n}\n.login-container .svg-container_login[data-v-72911c7d] {\n      font-size: 20px;\n}\n.login-container .title[data-v-72911c7d] {\n    font-size: 26px;\n    font-weight: 400;\n    color: #eee;\n    margin: 0px auto 40px auto;\n    text-align: center;\n    font-weight: bold;\n}\n.login-container .show-pwd[data-v-72911c7d] {\n    position: absolute;\n    right: 10px;\n    top: 7px;\n    font-size: 16px;\n    color: #889aa4;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 1732:
+/***/ (function(module, exports) {
+
+module.exports = "/images/6.jpg?a648f9bd52852ae4c9cfd807cf63e401";
+
+/***/ }),
+
+/***/ 1733:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_product__ = __webpack_require__(1726);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_config__ = __webpack_require__(1724);
 //
 //
 //
@@ -185,134 +163,97 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Login',
   data: function data() {
     return {
-      query: '',
-      url: '',
-      printer_product: '',
-      product: []
+      loginForm: {
+        username: 'duvierm24@gmail.com',
+        password: 'admin'
+      },
+      loginRules: {
+        username: [{ required: true, trigger: 'blur' }],
+        password: [{ required: true, trigger: 'blur' }]
+      },
+      loading: false,
+      errorLogin: false,
+      pwdType: 'password'
     };
-  },
-  created: function created() {
-    var _this = this;
-
-    Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["b" /* byId */])(1).then(function (_ref) {
-      var data = _ref.data;
-
-      _this.product = data;
-    }).catch(function (error) {
-      console.log(error);
-    });
-
-    Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["d" /* urlPrint */])().then(function (_ref2) {
-      var data = _ref2.data;
-
-      _this.url = data;
-    }).catch(function (error) {
-      console.log(error);
-    });
-
-    Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* getConfig */])('product_printer').then(function (_ref3) {
-      var data = _ref3.data;
-
-      _this.printer_product = data.value;
-    }).catch(function (error) {
-      console.log(error);
-    });
   },
 
   methods: {
-    print: function print() {
-      var me = this;
-      //1. generate an image of HTML content through html2canvas utility
-      html2canvas($('#card'), {
-        onrendered: function onrendered(canvas) {
-          // var b64Prefix = "data:image/png;base64,";
-          var imgBase64DataUri = canvas.toDataURL("image/png");
-          // var imgBase64Content = imgBase64DataUri.substring(b64Prefix.length, imgBase64DataUri.length);
-          // Canvas2Image.convertToPNG(canvasObj, width, height)
-          //2. save image base64 content to server-side Application Cache
-          $.ajax({
-            type: "POST",
-            // url: "{{action('StoreImageFileController@createFile')}}",
-            url: "api/product/createFile",
-            data: { base64ImageContent: imgBase64DataUri },
-            success: function success(imgFileName) {
-              var _this2 = this;
+    showPwd: function showPwd() {
+      if (this.pwdType === 'password') {
+        this.pwdType = '';
+      } else {
+        this.pwdType = 'password';
+      }
+    },
+    handleLogin: function handleLogin() {
+      var _this = this;
 
-              // alert("The image file: " + imgFileName + " was created at server side. Continue printing it...");
-
-              //2. Print the stored image file specifying the created file name
-              // jsWebClientPrint.print('useDefaultPrinter=' + $('#useDefaultPrinter').attr('checked') + '&printerName=PDFCreator&imageFileName=' + imgFileName);
-
-              Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["c" /* print */])(me.url).then(function (_ref4) {
-                var data = _ref4.data;
-
-                _this2.query = data.substring(21);
-                var exe = eval(_this2.query);
-                // exe.print('useDefaultPrinter=' + $('#useDefaultPrinter').attr('checked') + '&printerName='+me.printer_product+'&imageFileName='+imgFileName);
-              }).catch(function (error) {
-                console.log(error);
-              });
+      this.$refs.loginForm.validate(function (valid) {
+        if (valid) {
+          _this.loading = true;
+          _this.errorLogin = false;
+          _this.$store.dispatch('Login', _this.loginForm).then(function (response) {
+            _this.loading = false;
+            if (!response) {
+              _this.errorLogin = true;
+              return false;
             }
+            _this.$router.push({ path: '/' });
+            // this.$store.dispatch('initialiseAction', this.loginForm).then((response) => {
+            //   this.loading = false
+            //   this.$router.push({ path: '/' })
+            //   console.log('then initialise login');
+            // }).catch((error) => {
+            //   console.log('catch en acción initialise', error);
+            //   this.errorLogin = true
+            //   this.loading = true
+            // })
+          }).catch(function (error) {
+            console.log('catch en acción login', error);
+            _this.errorLogin = true;
+            _this.loading = true;
           });
+        } else {
+          return false;
         }
       });
-    },
-    aPDF: function aPDF() {
-      var me = this;
-      var pdf = new jsPDF('p', 'pt', 'letter');
-      var source = $('#card')[0];
-
-      var specialElementHandlers = {
-        '#bypassme': function bypassme(element, renderer) {
-          return true;
-        }
-      };
-      var margins = {
-        top: 80,
-        bottom: 60,
-        left: 40,
-        width: 522
-      };
-
-      pdf.fromHTML(source, margins.left, // x coord
-      margins.top, { // y coord
-        'width': margins.width,
-        'elementHandlers': specialElementHandlers
-      }, function (dispose) {
-        var tales = pdf.output('datauristring');
-        $.ajax({
-          type: "POST",
-          url: "api/product/createFile",
-          data: { base64ImageContent: tales },
-          success: function success(name) {
-            var _this3 = this;
-
-            Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["c" /* print */])(me.url).then(function (_ref5) {
-              var data = _ref5.data;
-
-              _this3.query = data.substring(21);
-              var exe = eval(_this3.query);
-              exe.print('useDefaultPrinter=0&printerName=' + me.printer_product + '&printRotation=None&fileName=' + name);
-            }).catch(function (error) {
-              console.log(error);
-            });
-          }
-        });
-      }, margins);
     }
   }
 });
 
 /***/ }),
 
-/***/ 1747:
+/***/ 1734:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -321,35 +262,149 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {},
+    { staticClass: "login-container" },
     [
-      _c("div", { attrs: { id: "card" } }, [
-        _c("h1", { staticStyle: { "font-size": "30px" } }, [
-          _vm._v(_vm._s(_vm.product.code))
-        ]),
-        _vm._v(" "),
-        _c("h2", [_vm._v(_vm._s(_vm.product.name))])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticStyle: { "font-size": "18px" },
-        attrs: { id: "printBtn", type: "button", value: "Print HTML Card..." },
-        on: { click: _vm.print }
-      }),
-      _vm._v(" "),
       _c(
-        "el-button",
+        "el-form",
         {
-          on: {
-            click: function($event) {
-              _vm.aPDF()
-            }
+          ref: "loginForm",
+          staticClass: "login-form",
+          attrs: {
+            model: _vm.loginForm,
+            rules: _vm.loginRules,
+            "auto-complete": "on",
+            "label-position": "left"
           }
         },
-        [_vm._v("PDF")]
-      ),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "img-out" } })
+        [
+          _c("div", { staticClass: "title" }, [_vm._v("AplexTM")]),
+          _vm._v(" "),
+          _c(
+            "transition",
+            { attrs: { name: "fade" } },
+            [
+              _c("el-alert", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errorLogin,
+                    expression: "errorLogin"
+                  }
+                ],
+                attrs: {
+                  title: "Datos de acceso invalidos.",
+                  type: "error",
+                  "show-icon": ""
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "el-form-item",
+            { attrs: { prop: "username" } },
+            [
+              _c(
+                "span",
+                { staticClass: "svg-container " },
+                [_c("icon-aplex", { attrs: { name: "user", type: "lnr" } })],
+                1
+              ),
+              _vm._v(" "),
+              _c("el-input", {
+                attrs: {
+                  name: "username",
+                  type: "text",
+                  "auto-complete": "on",
+                  placeholder: "username"
+                },
+                model: {
+                  value: _vm.loginForm.username,
+                  callback: function($$v) {
+                    _vm.$set(_vm.loginForm, "username", $$v)
+                  },
+                  expression: "loginForm.username"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-form-item",
+            { attrs: { prop: "password" } },
+            [
+              _c(
+                "span",
+                { staticClass: "svg-container" },
+                [_c("icon-aplex", { attrs: { name: "lock", type: "lnr" } })],
+                1
+              ),
+              _vm._v(" "),
+              _c("el-input", {
+                attrs: {
+                  type: _vm.pwdType,
+                  name: "password",
+                  "auto-complete": "on",
+                  placeholder: "password"
+                },
+                nativeOn: {
+                  keyup: function($event) {
+                    if (
+                      !("button" in $event) &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                    ) {
+                      return null
+                    }
+                    return _vm.handleLogin($event)
+                  }
+                },
+                model: {
+                  value: _vm.loginForm.password,
+                  callback: function($$v) {
+                    _vm.$set(_vm.loginForm, "password", $$v)
+                  },
+                  expression: "loginForm.password"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                { staticClass: "show-pwd", on: { click: _vm.showPwd } },
+                [_c("icon-aplex", { attrs: { name: "eye", type: "lnr" } })],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-form-item",
+            [
+              _c(
+                "el-button",
+                {
+                  staticStyle: { width: "100%" },
+                  attrs: { loading: _vm.loading, type: "primary" },
+                  nativeOn: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.handleLogin($event)
+                    }
+                  }
+                },
+                [_vm._v("\n        Entrar\n      ")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -360,7 +415,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3fbbd27e", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-72911c7d", module.exports)
   }
 }
 
