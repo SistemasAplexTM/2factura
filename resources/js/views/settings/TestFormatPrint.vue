@@ -10,15 +10,50 @@
         </sticky>
       </div>
       <br>
-      <vueditor ref="editor" style="min-height: 500px"></vueditor>
-
-
-<div style="text-align: center;"><span style="color: inherit;">Bienvenido</span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="color: inherit;">{nom_consignee}</span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="color: inherit;">Usted se ha registrado a nuestro servicio de casillero, a partir de ahora cuenta con una dirección física en {pais_agencia}, sus compras o encomiendas que deba realizar, debe dirigirlos a la siguiente dirección:</span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><strong><div style="text-align: center;"><strong style="color: inherit;">Dirección:</strong><span style="color: inherit;"> {dir_agencia}.</span></div></strong><strong><div style="text-align: center;"><strong style="color: inherit;">Ciudad:</strong><span style="color: inherit;"> {ciudad_agencia}</span></div></strong><strong><div style="text-align: center;"><strong style="color: inherit;">Estado:</strong><span style="color: inherit;"> {estado_agencia}</span></div></strong><strong><div style="text-align: center;"><strong style="color: inherit;">Código Postal:</strong><span style="color: inherit;"> {zip_agencia}</span></div></strong><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="color: inherit;">El código de casillero asignado a usted es: {pobox_consignee}</span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="color: inherit;">-----------------------------------------------</span></div><div style="text-align: center;"><span style="color: inherit;">Sus datos de acceso al sistema son:</span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><strong><div style="text-align: center;"><strong style="color: inherit;">Link:</strong><span style="color: inherit;"> {url_principal}/</span><span style="color: inherit;">{id_agencia}</span></div></strong><strong><div style="text-align: center;"><strong style="color: inherit;">Usuario:</strong><span style="color: inherit;"> {email_consignee}</span></div></strong><strong><div style="text-align: center;"><strong style="color: inherit;">Contraseña:</strong><span style="color: inherit;"> {pass_consignee}</span></div></strong><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="color: inherit;">-----------------------------------------------</span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="color: inherit;">Los envíos a {pais_consignee}, se realizarán a la siguiente dirección:</span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><strong><div style="text-align: center;"><strong style="color: inherit;">Dirección:</strong><span style="color: inherit;"> {dir_consignee}.</span></div></strong><strong><div style="text-align: center;"><strong style="color: inherit;">Ciudad:</strong><span style="color: inherit;"> {ciu_consignee}</span></div></strong><strong><div style="text-align: center;"><strong style="color: inherit;">Departamento / Estado:</strong><span style="color: inherit;"> {depto_consignee}</span></div></strong><strong><div style="text-align: center;"><strong style="color: inherit;">Código Postal:</strong><span style="color: inherit;"> {zip_consignee}</span></div></strong><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="font-size: 15px;"><br></span></div><div style="text-align: center;"><span style="color: inherit;">Los alertas del sistema se enviarán al email: {email_consignee} El teléfono de contacto con el cual nos comunicaremos en caso de ser requerido será: Movil: {cel_consignee} o Fijo: {tel_consignee}.</span></div><div style="text-align: center;"><br></div>
-
-
-
-
-
+      <el-row :gutter="15">
+          <el-col :span="18">
+            <vueditor ref="editor" style="min-height: 600px"></vueditor>
+          </el-col>
+          <el-col :span="5" :offset="1" >
+              <h1 class="text-center"><strong>Listado de variables</strong></h1>
+              <br>
+              <el-collapse v-model="activeName" accordion>
+                <el-collapse-item name="1">
+                  <template slot="title">
+                   <span style="font-size: 15px">{code}</span> - <strong>Código</strong>
+                   <i class="header-icon el-icon-information"></i>
+                 </template>
+                  <div>Acá va una descripciópn de la variable, indicando al usuario que dato es el que está incluyendo exactamente.</div>
+                </el-collapse-item>
+                <el-collapse-item name="2">
+                  <template slot="title">
+                    <el-popover
+                      placement="left-start"
+                      title="Descripción"
+                      width="200"
+                      trigger="hover"
+                      content="Acá va una pequeña descripción del campo y tal vez un ejemplo">
+                      <span slot="reference" style="font-size: 15px">{name}</span>
+                    </el-popover>
+                 </template>
+                </el-collapse-item>
+                <el-collapse-item name="3">
+                  <template slot="title">
+                   <span style="font-size: 15px">{price_sale}</span> - <strong>Precio de venta</strong>
+                   <i class="header-icon el-icon-information"></i>
+                 </template>
+                  <div>Acá va una descripciópn de la variable, indicando al usuario que dato es el que está incluyendo exactamente.</div>
+                </el-collapse-item>
+                <el-collapse-item name="4">
+                  <template slot="title">
+                   <span style="font-size: 15px">{cost}</span> - <strong>Costo</strong>
+                   <i class="header-icon el-icon-information"></i>
+                 </template>
+                  <div>Acá va una descripciópn de la variable, indicando al usuario que dato es el que está incluyendo exactamente.</div>
+                </el-collapse-item>
+              </el-collapse>
+          </el-col>
+      </el-row>
     </el-card>
   </div>
 </template>
@@ -31,7 +66,8 @@ export default {
   components: { Sticky },
   data () {
     return {
-      myHTML: ''
+      myHTML: '',
+      activeName: '1'
     }
   },
   created(){

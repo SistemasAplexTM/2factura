@@ -77,7 +77,6 @@ Route::prefix('product')->as('product.')
   Route::get('data', 'AplexProductController@data')->name('data');
 });
 
-Route::get('DemoPrintFile', 'DemoPrintFileController@printFile');
 Route::get('product/print', 'AplexProductController@print');
 Route::get('product/urlPrint', 'AplexProductController@urlPrint');
 Route::post('product/createFile', 'AplexProductController@createFile');

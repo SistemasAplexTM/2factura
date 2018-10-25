@@ -8,6 +8,7 @@ export function addProduct(data) {
   })
 }
 
+
 export function urlPrint() {
   return request({
     url: 'api/product/urlPrint',
@@ -26,5 +27,16 @@ export function byId(id) {
   return request({
     url: 'api/product/' + id,
     method: 'get'
+  })
+}
+
+export function createPDF(content, id) {
+  return request({
+    url: 'api/product/createFile',
+    method: 'POST',
+    data: {
+      content,
+      id
+    }
   })
 }

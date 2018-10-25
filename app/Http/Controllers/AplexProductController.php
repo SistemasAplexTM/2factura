@@ -18,128 +18,64 @@ use Neodynamic\SDK\Web\PrintFilePDF;
 use Neodynamic\SDK\Web\PrintRotation;
 use Session;
 
+use Barryvdh\DomPDF\Facade as PDF;
+
 class AplexProductController extends Controller
 {
     use Datatable;
     protected $tableClass = ProductTable::class;
 
-   public function createFile(Request $request){
-      $img = $request->base64ImageContent;
-      $img = str_replace('data:application/pdf;base64,', '', $img);
-      $img = str_replace(' ', '+', $img);
-      $data = base64_decode($img);
-      $randFileName = uniqid();
-      // $name = $randFileName . '.jpg';
-      $name = 'print.pdf';
-      file_put_contents($name, $data);
-
-      return response($name)->header('Content-Type', 'text/plain');
-
-    }
-   // public function createFile(Request $request){
-   //    $img = $request->base64ImageContent;
-   //    $img = str_replace('data:image/png;base64,', '', $img);
-   //    $img = str_replace(' ', '+', $img);
-   //    $data = base64_decode($img);
-   //    $im = imagecreatefromstring($data);  //convertir a imagen
-   //    $randFileName = uniqid();
-   //    // $name = $randFileName . '.jpg';
-   //    $name = 'prueba.jpg';
-   //    if ($im !== false) {
-   //        imagejpeg($im, $name); //guardar a disco
-   //        imagedestroy($im); //liberar memoria
-   //    }
-   //    else {
-   //        return 'Un error ocurrio al convertir la imagen.';
-   //    }
-   //   // return $request->all();
-   //     //generate random file name
-   //      // $randFileName = uniqid();
-   //      // //save image file on root website folder
-   //      // file_put_contents($randFileName, $request->input('base64ImageContent'));
-   //      // //return file name back to client
-   //      return response($name)->header('Content-Type', 'text/plain');
-   //
-   //  }
-
     public function urlPrint(){
-
         return WebClientPrint::createScript(action('WebClientPrintController@processRequest'), action('AplexProductController@print'), Session::getId());
-
-
-        // return view('home.printHtmlCard', ['wcpScript' => $wcpScript]);
     }
 
     public function print(Request $request){
-       if ($request->exists(WebClientPrint::CLIENT_PRINT_JOB)) {
+     if ($request->exists(WebClientPrint::CLIENT_PRINT_JOB)) {
 
-            $useDefaultPrinter = ($request->input('useDefaultPrinter') === 'checked');
-            $printerName = urldecode($request->input('printerName'));
+        $useDefaultPrinter = ($request->input('useDefaultPrinter') === 'checked');
+        $printerName = urldecode($request->input('printerName'));
 
-            $filePath = public_path() . '/'. $request->input('fileName');
+        $filePath = public_path() . '/'. $request->input('fileName');
 
-            //create a temp file name for our image file...
+        $fileName = 'print.pdf';
 
-            //Because we know the Card size is 3.125in x 4.17in, we can specify
-            //it through a special format in the file name (see http://goo.gl/upaazT) so the
-            //printing output size is honored; otherwise the output will be sized to Page Width & Height
-            //specified by the printer driver default setting
-            // $fileName = uniqid().'-PW=3.125-PH=4.17'.'.jpg';
-            $fileName = 'print.pdf';
+        $cpj = new ClientPrintJob();
 
-
-            //Create a ClientPrintJob obj that will be processed at the client side by the WCPP
-            $cpj = new ClientPrintJob();
-            //Create a PrintFile object with the PNG file
-            // $cpj->printFile = new PrintFile($filePath, $fileName, null);
-            $cpj->printFile = new PrintFilePDF($filePath, $fileName, null);
-            if ($useDefaultPrinter || $printerName === 'null'){
-                $cpj->clientPrinter = new DefaultPrinter();
-            }else{
-                $cpj->clientPrinter = new InstalledPrinter($printerName);
-            }
-
-            //Send ClientPrintJob back to the client
-            return response($cpj->sendToClient())
-                        ->header('Content-Type', 'application/octet-stream');
-
-
+        $cpj->printFile = new PrintFilePDF($filePath, $fileName, null);
+        if ($useDefaultPrinter || $printerName === 'null'){
+            $cpj->clientPrinter = new DefaultPrinter();
+        }else{
+            $cpj->clientPrinter = new InstalledPrinter($printerName);
         }
+
+        return response($cpj->sendToClient())
+                      ->header('Content-Type', 'application/octet-stream');
+      }
     }
 
+    public function createFile(Request $request){
+      $content = $request->content;
+      $params = array(
+        'code', 'name', 'price_sale'
+      );
+      $data = $this->show($request->id);
+      $html = $this->replacements($params, $data);
+      $html = preg_replace(array_keys($html), array_values($html), $content);
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($html);
+      $name = "print.pdf";
+      $pdf->save($name);
+      $output = $pdf->output();
+      file_put_contents( $name, $output);
+      return response($name)->header('Content-Type', 'text/plain');
+    }
 
-    public function printFile(Request $request){
-
-       if ($request->exists(WebClientPrint::CLIENT_PRINT_JOB)) {
-
-            $fileName = uniqid();
-            $filePath = public_path().'/files/GuidingPrinciplesBusinessHR_EN.pdf';
-
-            //Create PrintFilePDF obj
-            $myfile = new PrintFilePDF($filePath, $fileName, null);
-            $myfile->printRotation = PrintRotation::parse($request->input('printRotation'));
-            $myfile->pagesRange = $request->input('pagesRange');
-            $myfile->printAnnotations = ($request->input('printAnnotations')=='true');
-            $myfile->printAsGrayscale = ($request->input('printAsGrayscale')=='true');
-            $myfile->printInReverseOrder = ($request->input('printInReverseOrder')=='true');
-
-            //Create a ClientPrintJob obj that will be processed at the client side by the WCPP
-            $cpj = new ClientPrintJob();
-            $cpj->printFile = $myfile;
-
-            //Create an InstalledPrinter obj
-            $myPrinter = new InstalledPrinter(urldecode($request->input('printerName')));
-            $myPrinter->trayName = $request->input('trayName');
-            $myPrinter->paperName = $request->input('paperName');
-
-            $cpj->clientPrinter = $myPrinter;
-
-            //Send ClientPrintJob back to the client
-            return response($cpj->sendToClient())
-                        ->header('Content-Type', 'application/octet-stream');
-
-
+    public function replacements($params, $data)
+    {
+        foreach ($params as $key => $value) {
+            $replacements['({'. $value .'})'] = ($data) ? $data[$value] : '';
         }
+        return $replacements;
     }
 
     // /**
@@ -147,10 +83,10 @@ class AplexProductController extends Controller
     //  *
     //  * @return \Illuminate\Http\Response
     //  */
-    // public function index()
-    // {
-    //     //
-    // }
+    public function index()
+    {
+        //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -189,7 +125,7 @@ class AplexProductController extends Controller
      */
     public function show($product)
     {
-        return AplexProduct::find($product);
+        return AplexProduct::find($product)->toArray();
     }
 
     /**

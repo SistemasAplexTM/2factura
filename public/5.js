@@ -1,16 +1,16 @@
 webpackJsonp([5],{
 
-/***/ 1623:
+/***/ 1626:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(1778)
+  __webpack_require__(1781)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(1780)
+var __vue_script__ = __webpack_require__(1783)
 /* template */
 var __vue_template__ = __webpack_require__(1784)
 /* template functional */
@@ -52,15 +52,15 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 1636:
+/***/ 1639:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(1637)
+var __vue_script__ = __webpack_require__(1640)
 /* template */
-var __vue_template__ = __webpack_require__(1638)
+var __vue_template__ = __webpack_require__(1641)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -100,7 +100,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 1637:
+/***/ 1640:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -195,7 +195,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1638:
+/***/ 1641:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -247,13 +247,13 @@ if (false) {
 
 /***/ }),
 
-/***/ 1724:
+/***/ 1727:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["b"] = saveConfig;
 /* harmony export (immutable) */ __webpack_exports__["a"] = getConfig;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(24);
 
 
 function saveConfig(key, type, simple, data) {
@@ -276,13 +276,13 @@ function getConfig(key) {
 
 /***/ }),
 
-/***/ 1778:
+/***/ 1781:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1779);
+var content = __webpack_require__(1782);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -303,7 +303,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 1779:
+/***/ 1782:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -311,21 +311,56 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 1780:
+/***/ 1783:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Sticky__ = __webpack_require__(1636);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Sticky__ = __webpack_require__(1639);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Sticky___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Sticky__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_config__ = __webpack_require__(1724);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_config__ = __webpack_require__(1727);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -359,7 +394,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   components: { Sticky: __WEBPACK_IMPORTED_MODULE_0__components_Sticky___default.a },
   data: function data() {
     return {
-      myHTML: ''
+      myHTML: '',
+      activeName: '1'
     };
   },
   created: function created() {
@@ -434,7 +470,7 @@ var render = function() {
                       attrs: { size: "small", type: "primary" },
                       on: { click: _vm.save }
                     },
-                    [_vm._v("\n            Guardar\n          ")]
+                    [_vm._v("\n          Guardar\n        ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -457,214 +493,173 @@ var render = function() {
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _c("vueditor", {
-            ref: "editor",
-            staticStyle: { "min-height": "500px" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { color: "inherit" } }, [
-              _vm._v("Bienvenido")
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { color: "inherit" } }, [
-              _vm._v("{nom_consignee}")
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { color: "inherit" } }, [
-              _vm._v(
-                "Usted se ha registrado a nuestro servicio de casillero, a partir de ahora cuenta con una dirección física en {pais_agencia}, sus compras o encomiendas que deba realizar, debe dirigirlos a la siguiente dirección:"
+          _c(
+            "el-row",
+            { attrs: { gutter: 15 } },
+            [
+              _c(
+                "el-col",
+                { attrs: { span: 18 } },
+                [
+                  _c("vueditor", {
+                    ref: "editor",
+                    staticStyle: { "min-height": "600px" }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-col",
+                { attrs: { span: 5, offset: 1 } },
+                [
+                  _c("h1", { staticClass: "text-center" }, [
+                    _c("strong", [_vm._v("Listado de variables")])
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "el-collapse",
+                    {
+                      attrs: { accordion: "" },
+                      model: {
+                        value: _vm.activeName,
+                        callback: function($$v) {
+                          _vm.activeName = $$v
+                        },
+                        expression: "activeName"
+                      }
+                    },
+                    [
+                      _c(
+                        "el-collapse-item",
+                        { attrs: { name: "1" } },
+                        [
+                          _c("template", { slot: "title" }, [
+                            _c(
+                              "span",
+                              { staticStyle: { "font-size": "15px" } },
+                              [_vm._v("{code}")]
+                            ),
+                            _vm._v(" - "),
+                            _c("strong", [_vm._v("Código")]),
+                            _vm._v(" "),
+                            _c("i", {
+                              staticClass: "header-icon el-icon-information"
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm._v(
+                              "Acá va una descripciópn de la variable, indicando al usuario que dato es el que está incluyendo exactamente."
+                            )
+                          ])
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-collapse-item",
+                        { attrs: { name: "2" } },
+                        [
+                          _c(
+                            "template",
+                            { slot: "title" },
+                            [
+                              _c(
+                                "el-popover",
+                                {
+                                  attrs: {
+                                    placement: "left-start",
+                                    title: "Descripción",
+                                    width: "200",
+                                    trigger: "hover",
+                                    content:
+                                      "Acá va una pequeña descripción del campo y tal vez un ejemplo"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticStyle: { "font-size": "15px" },
+                                      attrs: { slot: "reference" },
+                                      slot: "reference"
+                                    },
+                                    [_vm._v("{name}")]
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-collapse-item",
+                        { attrs: { name: "3" } },
+                        [
+                          _c("template", { slot: "title" }, [
+                            _c(
+                              "span",
+                              { staticStyle: { "font-size": "15px" } },
+                              [_vm._v("{price_sale}")]
+                            ),
+                            _vm._v(" - "),
+                            _c("strong", [_vm._v("Precio de venta")]),
+                            _vm._v(" "),
+                            _c("i", {
+                              staticClass: "header-icon el-icon-information"
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm._v(
+                              "Acá va una descripciópn de la variable, indicando al usuario que dato es el que está incluyendo exactamente."
+                            )
+                          ])
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "el-collapse-item",
+                        { attrs: { name: "4" } },
+                        [
+                          _c("template", { slot: "title" }, [
+                            _c(
+                              "span",
+                              { staticStyle: { "font-size": "15px" } },
+                              [_vm._v("{cost}")]
+                            ),
+                            _vm._v(" - "),
+                            _c("strong", [_vm._v("Costo")]),
+                            _vm._v(" "),
+                            _c("i", {
+                              staticClass: "header-icon el-icon-information"
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm._v(
+                              "Acá va una descripciópn de la variable, indicando al usuario que dato es el que está incluyendo exactamente."
+                            )
+                          ])
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
               )
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Dirección:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {dir_agencia}.")
-              ])
-            ])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Ciudad:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {ciudad_agencia}")
-              ])
-            ])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Estado:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {estado_agencia}")
-              ])
-            ])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Código Postal:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {zip_agencia}")
-              ])
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { color: "inherit" } }, [
-              _vm._v(
-                "El código de casillero asignado a usted es: {pobox_consignee}"
-              )
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { color: "inherit" } }, [
-              _vm._v("-----------------------------------------------")
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { color: "inherit" } }, [
-              _vm._v("Sus datos de acceso al sistema son:")
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Link:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {url_principal}/")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v("{id_agencia}")
-              ])
-            ])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Usuario:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {email_consignee}")
-              ])
-            ])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Contraseña:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {pass_consignee}")
-              ])
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { color: "inherit" } }, [
-              _vm._v("-----------------------------------------------")
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { color: "inherit" } }, [
-              _vm._v(
-                "Los envíos a {pais_consignee}, se realizarán a la siguiente dirección:"
-              )
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Dirección:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {dir_consignee}.")
-              ])
-            ])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Ciudad:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {ciu_consignee}")
-              ])
-            ])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Departamento / Estado:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {depto_consignee}")
-              ])
-            ])
-          ]),
-          _c("strong", [
-            _c("div", { staticStyle: { "text-align": "center" } }, [
-              _c("strong", { staticStyle: { color: "inherit" } }, [
-                _vm._v("Código Postal:")
-              ]),
-              _c("span", { staticStyle: { color: "inherit" } }, [
-                _vm._v(" {zip_consignee}")
-              ])
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { "font-size": "15px" } }, [_c("br")])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [
-            _c("span", { staticStyle: { color: "inherit" } }, [
-              _vm._v(
-                "Los alertas del sistema se enviarán al email: {email_consignee} El teléfono de contacto con el cual nos comunicaremos en caso de ser requerido será: Movil: {cel_consignee} o Fijo: {tel_consignee}."
-              )
-            ])
-          ]),
-          _c("div", { staticStyle: { "text-align": "center" } }, [_c("br")])
+            ],
+            1
+          )
         ],
         1
       )
