@@ -30,13 +30,14 @@ export function byId(id) {
   })
 }
 
-export function createPDF(content, id) {
+export function createPDF(content, id, params) {
   return request({
     url: 'api/product/createFile',
     method: 'POST',
     data: {
       content,
-      id
+      id,
+      params
     }
   })
 }

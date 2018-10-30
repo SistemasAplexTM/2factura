@@ -68,6 +68,12 @@ Route::prefix('adminProductMeta')->as('adminProductMeta.')
   Route::get('data', 'AplexAdminProductMetaController@data')->name('data');
 });
 
+
+Route::prefix('config')->as('config.')
+->group(function () {
+  Route::get('init', 'AplexConfigController@init')->name('init');
+  Route::get('data', 'AplexConfigController@data')->name('data');
+});
 Route::post('config/{key}/{type}/{simple?}', 'AplexConfigController@save');
 Route::get('config/{key}', 'AplexConfigController@get');
 

@@ -1,6 +1,5 @@
 <template lang="html">
   <el-card class="box-card" shadow="hover">
-
     <div slot="header" class="clearfix">
       <sticky :className="'sub-navbar draft'" title="General">
         <el-button size="small" type="primary" @click="save">
@@ -11,23 +10,25 @@
     </div>
     <p>Al momento de crear el producto, se tendrá en cuaenta está configuración para ocultar y/o mostrar algunas opciones.</p>
     <br>
-    <el-form ref="form" :model="form" label-width="100px" label-position="left" :inline="true">
-      <el-form-item label="Taxonomías">
-        <el-select v-model="values" multiple clearable filterable  placeholder="Seleccione">
-          <el-option
-            v-for="item in options"
-            :key="item.id"
-            :label="item.description"
-            :value="item.id">
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="Impresora">
-        <printers @printerSelected="selectedPrinter"></printers>
-      </el-form-item>
-    </el-form>
-
-
+    <el-row :gutter="15">
+        <el-col :span="24">
+          <el-form ref="form" :model="form" label-width="100px" label-position="left" :inline="true">
+            <el-form-item label="Taxonomías">
+              <el-select v-model="values" multiple clearable filterable  placeholder="Seleccione">
+                <el-option
+                  v-for="item in options"
+                  :key="item.id"
+                  :label="item.description"
+                  :value="item.id">
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="Impresora">
+              <printers @printerSelected="selectedPrinter"></printers>
+            </el-form-item>
+          </el-form>
+        </el-col>
+    </el-row>
   </el-card>
 </template>
 

@@ -55,9 +55,7 @@ class AplexProductController extends Controller
 
     public function createFile(Request $request){
       $content = $request->content;
-      $params = array(
-        'code', 'name', 'price_sale'
-      );
+      $params = $request->params;
       $data = $this->show($request->id);
       $html = $this->replacements($params, $data);
       $html = preg_replace(array_keys($html), array_values($html), $content);
@@ -73,7 +71,7 @@ class AplexProductController extends Controller
     public function replacements($params, $data)
     {
         foreach ($params as $key => $value) {
-            $replacements['({'. $value .'})'] = ($data) ? $data[$value] : '';
+            $replacements['('. $value['code'] .')'] = ($data) ? $data[ str_replace(['{', '}'], '', $value['code']) ] : '';
         }
         return $replacements;
     }

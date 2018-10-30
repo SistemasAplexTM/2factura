@@ -1,60 +1,51 @@
-<!-- <template lang="html">
+<template lang="html">
   <div class="">
-    <el-row>
-      <el-col :span="24">
-        <h1>Impresora por defecto</h1>
-        <el-select v-model="">
-            <el-option
-                v-for="item in "
-                :label="item.label"
-                :value="item.value">
-            </el-option>
-        </el-select>
-        <el-button @click="exePrueba">Impresoras...</el-button>
+    <sticky :className="'sub-navbar draft'" title="General"></sticky>
+    <br>
+    <el-row :gutter="20">
+      <el-col :span="4">
+        <el-menu
+          default-active="1"
+          class="el-menu-vertical-demo" style="min-height: 500px">
+          <el-menu-item index="1">
+            <icon-aplex name="file-empty" :type="'lnr'" class="icon-menu"/>
+            <span>Formato de impresión</span>
+          </el-menu-item>
+          <el-menu-item index="2">
+            <i class="el-icon-document"></i>
+            <span>Navigator Three</span>
+          </el-menu-item>
+          <el-menu-item index="3">
+            <i class="el-icon-setting"></i>
+            <span>Navigator Four</span>
+          </el-menu-item>
+        </el-menu>
+      </el-col>
+      <el-col :span="20">
+        <params-print></params-print>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-
-var clientPrinters = null;
-
-var wcppGetPrintersTimeout_ms = 10000; //10 sec
-var wcppGetPrintersTimeoutStep_ms = 500; //0.5 sec
-function wcpGetPrintersOnSuccess() {
-    // Display client installed printers
-    if (arguments[0].length > 0) {
-      clientPrinters = JSON.parse(arguments[0]);
-    } else {
-        alert("No printers are installed in your system.");
-    }
-}
-
-import { getUrlImpressInfo } from '@/api/global'
+import Sticky from '@/components/Sticky'
+import ParamsPrint from './ParamsPrint'
 export default {
+  components: { Sticky, ParamsPrint},
   data(){
     return {
-      dataPrueba: '',
-      print: '',
-      prints: clientPrinters
+
     }
-  },
-  created(){
-    getUrlImpressInfo().then(({data}) => {
-
-      this.dataPrueba = data.substring(21)
-
-    }).catch((error) => { console.log(error) })
   },
   methods: {
-    exePrueba(){
-      var tales = eval(this.dataPrueba)
-      tales.getPrinters()
+    save(){
+
     }
+
   }
 }
 </script>
 
 <style lang="css">
-</style> -->
+</style>

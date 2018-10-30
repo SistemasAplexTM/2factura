@@ -41,6 +41,15 @@ hr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2)
 }
 
+.el-card{
+  padding-bottom: 20px;
+  // min-height: 500px;
+}
+
+.el-select{
+  width: 100%
+}
+
 .img-circle {
   border-radius: 100px;
 }

@@ -34,7 +34,8 @@ export default {
     return {
       url: '',
       printer_product: '',
-      format_print: ''
+      format_print: '',
+      params: []
     }
   },
   created(){
@@ -53,14 +54,17 @@ export default {
   methods: {
     print(val){
       let me = this
-      createPDF(me.format_print, val.dtRowId).then(({data}) => {
-        var name = data
-        //console.log(data);
-        print(me.url).then(({data}) => {
-          var exe = eval(data.substring(21))
-          exe.print('useDefaultPrinter=0&printerName='+me.printer_product+'&printRotation=None&fileName='+name);
-        }).catch((error) => { console.log(error) })
-      }).catch((error) => console.log(error))
+      getConfig('params_print_product').then(({data}) => {
+        var data = JSON.parse(data.value)
+        me.params = data.params
+        createPDF(me.format_print, val.dtRowId, data.params).then(({data}) => {
+          var name = data
+          print(me.url).then(({data}) => {
+            var exe = eval(data.substring(21))
+            exe.print('useDefaultPrinter=0&printerName='+me.printer_product+'&printRotation=None&fileName='+name);
+          }).catch((error) => { console.log(error) })
+        }).catch((error) => console.log(error))
+      }).catch((error) => { console.log(error) })
     },
     update(){
 

@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 1623:
+/***/ 1626:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(1750)
+var __vue_script__ = __webpack_require__(1779)
 /* template */
-var __vue_template__ = __webpack_require__(1751)
+var __vue_template__ = __webpack_require__(1780)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -25,7 +25,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/views/products/PrintProduct.vue"
+Component.options.__file = "resources/js/views/settings/FormatPrint.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -34,9 +34,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3fbbd27e", Component.options)
+    hotAPI.createRecord("data-v-0c2fcd2e", Component.options)
   } else {
-    hotAPI.reload("data-v-3fbbd27e", Component.options)
+    hotAPI.reload("data-v-0c2fcd2e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -45,6 +45,201 @@ if (false) {(function () {
 
 module.exports = Component.exports
 
+
+/***/ }),
+
+/***/ 1639:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(1640)
+/* template */
+var __vue_template__ = __webpack_require__(1641)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Sticky/index.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-cfd769d2", Component.options)
+  } else {
+    hotAPI.reload("data-v-cfd769d2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 1640:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Sticky',
+  props: {
+    title: {
+      type: String
+    },
+    stickyTop: {
+      type: Number,
+      default: 0
+    },
+    zIndex: {
+      type: Number,
+      default: 1
+    },
+    className: {
+      type: String
+    }
+  },
+  data: function data() {
+    return {
+      active: false,
+      position: '',
+      width: undefined,
+      height: undefined,
+      isSticky: false
+    };
+  },
+  mounted: function mounted() {
+    this.height = this.$el.getBoundingClientRect().height;
+    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleReize);
+  },
+  activated: function activated() {
+    this.handleScroll();
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleReize);
+  },
+
+  methods: {
+    sticky: function sticky() {
+      if (this.active) {
+        return;
+      }
+      this.position = 'fixed';
+      this.active = true;
+      this.width = this.width + 'px';
+      this.isSticky = true;
+    },
+    reset: function reset() {
+      if (!this.active) {
+        return;
+      }
+      this.position = '';
+      this.width = 'auto';
+      this.active = false;
+      this.isSticky = false;
+    },
+    handleScroll: function handleScroll() {
+      this.width = this.$el.getBoundingClientRect().width;
+      var offsetTop = this.$el.getBoundingClientRect().top;
+      if (offsetTop < this.stickyTop) {
+        this.sticky();
+        return;
+      }
+      this.reset();
+    },
+    handleReize: function handleReize() {
+      if (this.isSticky) {
+        this.width = this.$el.getBoundingClientRect().width + 'px';
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 1641:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { style: { height: _vm.height + "px", zIndex: _vm.zIndex } },
+    [
+      _c(
+        "div",
+        {
+          class: _vm.className,
+          style: {
+            top: _vm.stickyTop + "px",
+            zIndex: _vm.zIndex,
+            position: _vm.position,
+            width: _vm.width,
+            height: _vm.height + "px"
+          }
+        },
+        [
+          _c(
+            "span",
+            {
+              staticClass: "fl",
+              staticStyle: { "font-size": "25px", "margin-left": "15px" }
+            },
+            [_vm._v(_vm._s(_vm.title))]
+          ),
+          _vm._v(" "),
+          _vm._t("default", [_c("div")])
+        ],
+        2
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-cfd769d2", module.exports)
+  }
+}
 
 /***/ }),
 
@@ -77,67 +272,47 @@ function getConfig(key) {
 
 /***/ }),
 
-/***/ 1730:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = addProduct;
-/* harmony export (immutable) */ __webpack_exports__["d"] = urlPrint;
-/* harmony export (immutable) */ __webpack_exports__["c"] = print;
-/* unused harmony export byId */
-/* harmony export (immutable) */ __webpack_exports__["b"] = createPDF;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(24);
-
-
-function addProduct(data) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/product',
-    method: 'post',
-    data: data
-  });
-}
-
-function urlPrint() {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/product/urlPrint',
-    method: 'get'
-  });
-}
-
-function print(url) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: url,
-    method: 'get'
-  });
-}
-
-function byId(id) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/product/' + id,
-    method: 'get'
-  });
-}
-
-function createPDF(content, id) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/product/createFile',
-    method: 'POST',
-    data: {
-      content: content,
-      id: id
-    }
-  });
-}
-
-/***/ }),
-
-/***/ 1750:
+/***/ 1779:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_product__ = __webpack_require__(1730);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Sticky__ = __webpack_require__(1639);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Sticky___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Sticky__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_config__ = __webpack_require__(1727);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -149,58 +324,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: { Sticky: __WEBPACK_IMPORTED_MODULE_0__components_Sticky___default.a },
   data: function data() {
     return {
-      url: '',
-      printer_product: '',
-      format_print: ''
+      myHTML: '',
+      activeName: '1',
+      params: [{ code: '{code}', name: 'Código', desc: 'Código de producto' }, { code: '{name}', name: 'Nombre', desc: 'Nombre de producto' }, { code: '{price_sale}', name: 'Precio de venta', desc: 'Precio de venta del producto' }]
     };
   },
   created: function created() {
     var _this = this;
 
-    Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["d" /* urlPrint */])().then(function (_ref) {
+    Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* getConfig */])('format_print_product').then(function (_ref) {
       var data = _ref.data;
 
-      _this.url = data;
+      _this.myHTML = data.value;
+      _this.$refs.editor.setContent(_this.myHTML);
     }).catch(function (error) {
-      console.log(error);
-    });
-
-    Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* getConfig */])('product_printer').then(function (_ref2) {
-      var data = _ref2.data;
-
-      _this.printer_product = data.value;
-    }).catch(function (error) {
-      console.log(error);
-    });
-
-    Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* getConfig */])('test_format_print').then(function (_ref3) {
-      var data = _ref3.data;
-
-      _this.format_print = data.value;
-    }).catch(function (error) {
-      console.log(error);
+      _this.$message.error('Error al registrar.');
     });
   },
 
   methods: {
-    printPDF: function printPDF() {
-      var me = this;
-      Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["b" /* createPDF */])(me.format_print).then(function (_ref4) {
-        var data = _ref4.data;
+    save: function save() {
+      var _this2 = this;
 
-        var name = data;
-        Object(__WEBPACK_IMPORTED_MODULE_0__api_product__["c" /* print */])(me.url).then(function (_ref5) {
-          var data = _ref5.data;
+      this.myHTML = this.$refs.editor.getContent();
+      Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* saveConfig */])('format_print_product', 'format_print', true, this.myHTML).then(function (_ref2) {
+        var data = _ref2.data;
 
-          var exe = eval(data.substring(21));
-          exe.print('useDefaultPrinter=0&printerName=' + me.printer_product + '&printRotation=None&fileName=' + name);
-        }).catch(function (error) {
-          console.log(error);
+        _this2.$message({
+          message: 'Registrado con éxito.',
+          type: 'success'
         });
       }).catch(function (error) {
-        return console.log(error);
+        _this2.$message.error('Error al registrar.');
+      });
+      Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* saveConfig */])('params_print_product', 'params', false, this.params).then(function (_ref3) {
+        var data = _ref3.data;
+
+        _this2.$message({
+          message: 'Registrado con éxito.',
+          type: 'success'
+        });
+      }).catch(function (error) {
+        _this2.$message.error('Error al registrar.');
       });
     }
   }
@@ -208,7 +376,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1751:
+/***/ 1780:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -217,18 +385,144 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {},
+    { attrs: { id: "app" } },
     [
       _c(
-        "el-button",
-        {
-          on: {
-            click: function($event) {
-              _vm.printPDF()
-            }
-          }
-        },
-        [_vm._v("IMPRIMIR")]
+        "el-card",
+        { staticClass: "box-card", attrs: { shadow: "hover" } },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "clearfix",
+              attrs: { slot: "header" },
+              slot: "header"
+            },
+            [
+              _c(
+                "sticky",
+                {
+                  attrs: {
+                    className: "sub-navbar draft",
+                    title: "Formato de impresión"
+                  }
+                },
+                [
+                  _c(
+                    "el-button",
+                    {
+                      attrs: { size: "small", type: "primary" },
+                      on: { click: _vm.save }
+                    },
+                    [_vm._v("\n          Guardar\n        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-button",
+                    {
+                      attrs: {
+                        id: "cancelButton",
+                        type: "default",
+                        size: "small"
+                      }
+                    },
+                    [_vm._v("Cancelar")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "el-row",
+            { attrs: { gutter: 15 } },
+            [
+              _c(
+                "el-col",
+                { attrs: { span: 18 } },
+                [
+                  _c("vueditor", {
+                    ref: "editor",
+                    staticStyle: { "min-height": "600px" }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-col",
+                { attrs: { span: 5, offset: 1 } },
+                [
+                  _c("h1", { staticClass: "text-center" }, [
+                    _c("strong", [_vm._v("Listado de variables")])
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "el-collapse",
+                    {
+                      attrs: { accordion: "" },
+                      model: {
+                        value: _vm.activeName,
+                        callback: function($$v) {
+                          _vm.activeName = $$v
+                        },
+                        expression: "activeName"
+                      }
+                    },
+                    _vm._l(_vm.params, function(value, index) {
+                      return _c(
+                        "el-collapse-item",
+                        { key: index, attrs: { name: index } },
+                        [
+                          _c(
+                            "template",
+                            { slot: "title" },
+                            [
+                              _c(
+                                "el-popover",
+                                {
+                                  attrs: {
+                                    placement: "left-start",
+                                    title: value.name,
+                                    width: "200",
+                                    trigger: "hover",
+                                    content: value.desc
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticStyle: { "font-size": "15px" },
+                                      attrs: { slot: "reference" },
+                                      slot: "reference"
+                                    },
+                                    [_vm._v(_vm._s(value.code))]
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        2
+                      )
+                    })
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
       )
     ],
     1
@@ -240,7 +534,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3fbbd27e", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-0c2fcd2e", module.exports)
   }
 }
 
