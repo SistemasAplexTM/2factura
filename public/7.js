@@ -48,15 +48,15 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 1639:
+/***/ 1634:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(1640)
+var __vue_script__ = __webpack_require__(1641)
 /* template */
-var __vue_template__ = __webpack_require__(1641)
+var __vue_template__ = __webpack_require__(1642)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97,6 +97,35 @@ module.exports = Component.exports
 /***/ }),
 
 /***/ 1640:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["b"] = saveConfig;
+/* harmony export (immutable) */ __webpack_exports__["a"] = getConfig;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(24);
+
+
+function saveConfig(key, type, simple, data) {
+  if (simple) {
+    data = { type: data };
+  }
+  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
+    url: 'api/config/' + key + '/' + type + '/' + simple,
+    method: 'post',
+    data: data
+  });
+}
+
+function getConfig(key) {
+  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
+    url: 'api/config/' + key,
+    method: 'get'
+  });
+}
+
+/***/ }),
+
+/***/ 1641:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -191,7 +220,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 1641:
+/***/ 1642:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -243,43 +272,14 @@ if (false) {
 
 /***/ }),
 
-/***/ 1727:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = saveConfig;
-/* harmony export (immutable) */ __webpack_exports__["a"] = getConfig;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(24);
-
-
-function saveConfig(key, type, simple, data) {
-  if (simple) {
-    data = { type: data };
-  }
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/config/' + key + '/' + type + '/' + simple,
-    method: 'post',
-    data: data
-  });
-}
-
-function getConfig(key) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */])({
-    url: 'api/config/' + key,
-    method: 'get'
-  });
-}
-
-/***/ }),
-
 /***/ 1779:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Sticky__ = __webpack_require__(1639);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Sticky__ = __webpack_require__(1634);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Sticky___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Sticky__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_config__ = __webpack_require__(1727);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_config__ = __webpack_require__(1640);
 //
 //
 //
@@ -329,14 +329,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       myHTML: '',
       activeName: '1',
-      params: [{ code: '{code}', name: 'Código', desc: 'Código de producto' }, { code: '{name}', name: 'Nombre', desc: 'Nombre de producto' }, { code: '{price_sale}', name: 'Precio de venta', desc: 'Precio de venta del producto' }]
+      params: []
     };
   },
   created: function created() {
     var _this = this;
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* getConfig */])('format_print_product').then(function (_ref) {
+    Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* getConfig */])('params_print_product').then(function (_ref) {
       var data = _ref.data;
+
+      var data = JSON.parse(data.value);
+      _this.params = data.params;
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+    Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["a" /* getConfig */])('format_print_product').then(function (_ref2) {
+      var data = _ref2.data;
 
       _this.myHTML = data.value;
       _this.$refs.editor.setContent(_this.myHTML);
@@ -350,8 +359,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this2 = this;
 
       this.myHTML = this.$refs.editor.getContent();
-      Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* saveConfig */])('format_print_product', 'format_print', true, this.myHTML).then(function (_ref2) {
-        var data = _ref2.data;
+      Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* saveConfig */])('format_print_product', 'format_print', true, this.myHTML).then(function (_ref3) {
+        var data = _ref3.data;
 
         _this2.$message({
           message: 'Registrado con éxito.',
@@ -360,8 +369,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).catch(function (error) {
         _this2.$message.error('Error al registrar.');
       });
-      Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* saveConfig */])('params_print_product', 'params', false, this.params).then(function (_ref3) {
-        var data = _ref3.data;
+      Object(__WEBPACK_IMPORTED_MODULE_1__api_config__["b" /* saveConfig */])('params_print_product', 'params', false, this.params).then(function (_ref4) {
+        var data = _ref4.data;
 
         _this2.$message({
           message: 'Registrado con éxito.',

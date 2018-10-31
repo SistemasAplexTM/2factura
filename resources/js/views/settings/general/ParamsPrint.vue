@@ -5,15 +5,18 @@
         <el-card class="box-card" shadow="hover">
           <div slot="header" class="clearfix">
             <sticky :className="'sub-navbar draft'" title="">
-              <el-button size="small" type="primary" @click="save">
+              <el-button v-if="!editing" size="small" type="primary" @click="save(true)">
                 Guardar
               </el-button>
-              <el-button id="cancelButton" type="default" size="small" >Cancelar</el-button>
+              <el-button v-else size="small" type="primary" @click="update">
+                Actualizar
+              </el-button>
+              <el-button id="cancelButton" type="default" size="small" @click="reset">Cancelar</el-button>
             </sticky>
           </div>
-          <el-form :model="formParams" status-icon  label-width="110px" class="demo-ruleForm" label-position="left">
-            <el-form-item label="Formato">
-              <el-select v-model="value" placeholder="Select">
+          <el-form :model="formParams" :rules="rules" ref="formParams" status-icon  label-width="110px" class="demo-ruleForm" label-position="left">
+            <el-form-item label="Formato" prop="format">
+              <el-select v-model="formParams.format" placeholder="Select" >
                 <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -36,11 +39,7 @@
       </el-col>
       <el-col :span="16">
         <el-card class="box-card" shadow="hover">
-          <div slot="header" class="clearfix">
-            <sticky :className="'sub-navbar draft'" title="">
 
-            </sticky>
-          </div>
           <el-table
             border
             :data="params.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
@@ -68,11 +67,11 @@
               <template slot-scope="scope">
                 <el-button
                 size="mini"
-                @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
+                @click="edit(scope.$index, scope.row)">Edit</el-button>
                 <el-button
                 size="mini"
                 type="danger"
-                @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+                @click="destroy(scope.$index, scope.row)">Delete</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -90,35 +89,57 @@ export default {
   components: { Sticky },
   data(){
     return {
+      editing: false,
+      index_editing: null,
       options: [{
          value: 'Option1',
          label: 'Option1'
        }],
-       value: '',
+       params: [],
+       search: '',
        formParams: {
+         format: '',
          code: '',
          name: '',
          desc: ''
        },
-       params: [],
-       search: ''
+       rules: {
+         format: [
+           { required: true, message: 'Formato requerido', trigger: 'change' }
+         ],
+         code: [
+           { required: true, message: 'Código requerido', trigger: 'blur' }
+          ],
+          name: [
+            { required: true, message: 'Nombre requerido', trigger: 'blur' }
+          ],
+          desc: [
+            { required: true, message: 'Descripción requerida', trigger: 'blur' }
+          ],
+      }
     }
   },
   created(){
     this.getData()
   },
   methods: {
-    save(){
-      saveConfig('params_print_product', 'params',false, this.params).then(({data}) => {
-
-        this.reset()
-        this.getData()
-        this.$message({
-           message: 'Registrado con éxito.',
-           type: 'success'
-         });
-      }).catch(error => {
-        this.$message.error('Error al registrar.');
+    save(push){
+      this.$refs['formParams'].validate((valid) => {
+        if (valid) {
+          if (push) {
+            this.params.push(this.formParams)
+          }
+          saveConfig('params_print_product', 'params',false, this.params).then(({data}) => {
+            this.reset()
+            this.getData()
+            this.$message({
+              message: 'Registrado con éxito.',
+              type: 'success'
+            });
+          }).catch(error => {
+            this.$message.error('Error al registrar.');
+          })
+        }
       })
     },
     getData(){
@@ -128,20 +149,35 @@ export default {
         me.params = data.params
       }).catch((error) => { console.log(error) })
     },
-    destroy(){
-
+    edit(index, row){
+      this.editing = true
+      this.index_editing = index
+      this.formParams = row
     },
     update(){
-
+      this.params[this.index_editing] = this.formParams
+      this.save(false)
     },
-    handleEdit(){},
-    handleDelete(){},
+    destroy(index, row){
+      this.params.splice(index,1)
+      saveConfig('params_print_product', 'params',false, this.params).then(({data}) => {
+        this.getData()
+        this.$message({
+          message: 'Eliminado con éxito.',
+          type: 'success'
+        });
+      }).catch(error => {
+        this.$message.error('Error al registrar.');
+      })
+    },
     reset(){
+      this.editing = false
       this.formParams = {
         code: '',
         name: '',
         desc: ''
       }
+      this.$refs['formParams'].resetFields();
     }
   }
 }

@@ -47,14 +47,15 @@ export default {
     return {
       myHTML: '',
       activeName: '1',
-      params: [
-        {code: '{code}', name: 'Código', desc: 'Código de producto'},
-        {code: '{name}', name: 'Nombre', desc: 'Nombre de producto'},
-        {code: '{price_sale}', name: 'Precio de venta', desc: 'Precio de venta del producto'}
-      ]
+      params: []
     }
   },
   created(){
+    getConfig('params_print_product').then(({data}) => {
+      var data = JSON.parse(data.value)
+      this.params = data.params
+    }).catch((error) => { console.log(error) })
+
     getConfig('format_print_product').then(({data}) => {
       this.myHTML = data.value
       this.$refs.editor.setContent(this.myHTML)
