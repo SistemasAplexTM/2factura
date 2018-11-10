@@ -4,6 +4,7 @@ import app from './modules/app'
 import user from './modules/user'
 import admin from './modules/admin_table'
 import adminProduct from './modules/admin_product'
+import product from './modules/product'
 import getters from './getters'
 
 Vue.use(Vuex)
@@ -13,7 +14,8 @@ const store = new Vuex.Store({
     app,
     user,
     admin,
-    adminProduct
+    adminProduct,
+    product,
   },
   getters
 })

@@ -1,5 +1,5 @@
 <template lang="html">
-  <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
+  <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" ></vue-dropzone>
 </template>
 
 <script>
@@ -12,8 +12,9 @@ export default {
       dropzoneOptions: {
           url: 'https://httpbin.org/post',
           thumbnailWidth: 150,
-          maxFilesize: 0.5,
+          maxFilesize: 2,
           addRemoveLinks: true,
+          dictDefaultMessage: 'Imagen del producto ',
           headers: { "My-Awesome-Header": "header value" }
       }
     }
@@ -22,4 +23,5 @@ export default {
 </script>
 
 <style lang="css">
+
 </style>

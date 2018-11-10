@@ -4,7 +4,7 @@
       <router-link :to="{ path: '/productos' }">
         <el-button type="default" icon="el-icon-tickets" size="small">Listar</el-button>
       </router-link>
-      <el-button size="small" type="primary" @click="submit()">
+      <el-button size="small" type="primary" @click="save()">
         Guardar
       </el-button>
       <el-button id="cancelButton" type="default" size="small" >Cancelar</el-button>
@@ -64,7 +64,7 @@
         </el-card>
       </el-col>
       <el-col :span="columnsPanels">
-        <panels v-for="value in ids" :id="value" :key="value"></panels>
+        <panels v-for="value in ids" :id="value" :key="value" ref="panels"></panels>
       </el-col>
     </el-row>
   </div>
@@ -76,7 +76,10 @@ import General from './General'
 import Panels from './Panels'
 import Attributes from './Attributes'
 import { getConfig } from '@/api/config'
-import { addProduct } from '@/api/product'
+import { add } from '@/api/product'
+import { getAdminProduct } from '@/api/admin_product'
+import { mapGetters } from 'vuex'
+
 export default {
   components: {Sticky,General, Panels, Attributes},
   data(){
@@ -110,6 +113,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'tree_selected'
+    ]),
     columnsPanels: function(){ return  24 - this.columns }
   },
   created(){
@@ -146,19 +152,20 @@ export default {
       this.statusGeneral = 'process'
       this.$refs.general.resetForm()
     },
-    submit(){
+    save(){
+      let me = this
       if (!this.$refs.general.validate()) {
         return false
       }
-      this.formGeneral = this.$refs.general.validate()
-      addProduct(this.formGeneral).then((response) => {
-        this.reset()
-        this.$message.success('Registro exitoso.');
+      me.formGeneral = me.$refs.general.validate()
+      // me.formGeneral.tax = me.tree_selected
+      add(me.formGeneral).then((response) => {
+        // me.reset()
+        me.$message.success('Registro exitoso.');
       }).catch((error) => {
-        this.$message.error('Error al registrar producto.');
+        me.$message.error('Error al registrar producto.');
         console.log(error);
       })
-      console.log(this.formGeneral);
     }
   }
 }

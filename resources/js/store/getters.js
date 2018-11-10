@@ -9,6 +9,8 @@ const getters = {
   selected_type_text: state => state.adminProduct.selected_type_text,
   selected_text: state => state.adminProduct.selected_text,
   selected: state => state.adminProduct.selected,
-  selected_id: state => state.adminProduct.selected_id
+  selected_id: state => state.adminProduct.selected_id,
+
+  tree_selected: state => state.product.tree_selected
 }
 export default getters

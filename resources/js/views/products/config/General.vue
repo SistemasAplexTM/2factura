@@ -14,7 +14,7 @@
         <el-col :span="24">
           <el-form ref="form" :model="form" label-width="100px" label-position="left" :inline="true">
             <el-form-item label="Taxonomías">
-              <el-select v-model="values" multiple clearable filterable  placeholder="Seleccione">
+              <el-select v-model="values" multiple clearable filterable collapse-tags  placeholder="Seleccione">
                 <el-option
                   v-for="item in options"
                   :key="item.id"

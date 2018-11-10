@@ -125,6 +125,18 @@
           </el-card>
         </router-link>
       </el-col>
+      <el-col :span="6">
+        <router-link :to="{ path: 'configuracion/sucursales' }">
+          <el-card shadow="hover" class="card-config">
+            <h1>
+              Sucursales
+              <icon-aplex name="store" scale="1.5" :type="'lnr'" class="fr"/>
+            </h1>
+            <hr>
+            <p>Cree, edite y elimine sucursales.</p>
+          </el-card>
+        </router-link>
+      </el-col>
     </el-row>
   </div>
 </template>

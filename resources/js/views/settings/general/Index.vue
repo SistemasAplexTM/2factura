@@ -12,12 +12,8 @@
             <span>Formato de impresión</span>
           </el-menu-item>
           <el-menu-item index="2">
-            <i class="el-icon-document"></i>
-            <span>Navigator Three</span>
-          </el-menu-item>
-          <el-menu-item index="3">
-            <i class="el-icon-setting"></i>
-            <span>Navigator Four</span>
+            <icon-aplex name="earth" class="icon-menu" :type="'lnr'"/>
+            <span>Idioma</span>
           </el-menu-item>
         </el-menu>
       </el-col>

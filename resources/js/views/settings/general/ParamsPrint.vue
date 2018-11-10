@@ -15,8 +15,8 @@
             </sticky>
           </div>
           <el-form :model="formParams" :rules="rules" ref="formParams" status-icon  label-width="110px" class="demo-ruleForm" label-position="left">
-            <el-form-item label="Formato" prop="format">
-              <el-select v-model="formParams.format" placeholder="Select" >
+            <el-form-item label="Formato">
+              <el-select v-model="format" @change="getData()" clearable placeholder="Seleccione formato" class="w100">
                 <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -39,11 +39,10 @@
       </el-col>
       <el-col :span="16">
         <el-card class="box-card" shadow="hover">
-
           <el-table
             border
             :data="params.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
-            style="width: 100%">
+            style="width: 100%" empty-text="No hay datos">
             <el-table-column
               label="Código"
               prop="code">
@@ -57,21 +56,16 @@
               prop="desc">
             </el-table-column>
             <el-table-column
+              width="100"
               align="right">
-              <template slot="header" slot-scope="slot">
-                <el-input
-                v-model="search"
-                size="mini"
-                placeholder="Type to search"/>
-              </template>
               <template slot-scope="scope">
                 <el-button
-                size="mini"
-                @click="edit(scope.$index, scope.row)">Edit</el-button>
-                <el-button
-                size="mini"
-                type="danger"
-                @click="destroy(scope.$index, scope.row)">Delete</el-button>
+                size="small"
+                icon="el-icon-edit"
+                type="primary"
+                circle
+                @click="edit(scope.$index, scope.row)"></el-button>
+                <confirm-button @confirmation-success="destroy(scope.$index, scope.row)"></confirm-button>
               </template>
             </el-table-column>
           </el-table>
@@ -84,21 +78,25 @@
 <script>
 import Sticky from '@/components/Sticky'
 import { saveConfig, getConfig } from '@/api/config'
+import ConfirmButton from '@/components/Buttons/ConfirmButton'
 
 export default {
-  components: { Sticky },
+  components: { Sticky, ConfirmButton },
   data(){
     return {
       editing: false,
       index_editing: null,
       options: [{
-         value: 'Option1',
-         label: 'Option1'
+         value: 'product',
+         label: 'Product'
+       },{
+         value: 'nuevo',
+         label: 'Nuevo'
        }],
+       format: '',
        params: [],
        search: '',
        formParams: {
-         format: '',
          code: '',
          name: '',
          desc: ''
@@ -119,9 +117,6 @@ export default {
       }
     }
   },
-  created(){
-    this.getData()
-  },
   methods: {
     save(push){
       this.$refs['formParams'].validate((valid) => {
@@ -129,7 +124,7 @@ export default {
           if (push) {
             this.params.push(this.formParams)
           }
-          saveConfig('params_print_product', 'params',false, this.params).then(({data}) => {
+          saveConfig('params_print_' + this.format, 'params',false, this.params).then(({data}) => {
             this.reset()
             this.getData()
             this.$message({
@@ -144,10 +139,14 @@ export default {
     },
     getData(){
       let me = this
-      getConfig('params_print_product').then(({data}) => {
-        var data = JSON.parse(data.value)
-        me.params = data.params
-      }).catch((error) => { console.log(error) })
+      if (this.format != "") {
+        getConfig('params_print_' + this.format).then(({data}) => {
+          var data = JSON.parse(data.value)
+          me.params = data.params
+        }).catch((error) => { console.log(error) })
+      }else{
+        me.params = []
+      }
     },
     edit(index, row){
       this.editing = true
@@ -160,7 +159,7 @@ export default {
     },
     destroy(index, row){
       this.params.splice(index,1)
-      saveConfig('params_print_product', 'params',false, this.params).then(({data}) => {
+      saveConfig('params_print_' + this.format, 'params',false, this.params).then(({data}) => {
         this.getData()
         this.$message({
           message: 'Eliminado con éxito.',
@@ -178,6 +177,7 @@ export default {
         desc: ''
       }
       this.$refs['formParams'].resetFields();
+      this.getData()
     }
   }
 }

@@ -7,6 +7,14 @@
             Guardar
           </el-button>
           <el-button id="cancelButton" type="default" size="small" >Cancelar</el-button>
+          <el-select v-model="type" @change="getData()" clearable placeholder="Seleccione un elemento para crear o modificar su formato de impresión" class="w100">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
         </sticky>
       </div>
       <br>
@@ -47,24 +55,21 @@ export default {
     return {
       myHTML: '',
       activeName: '1',
-      params: []
+      params: [],
+      options: [{
+         value: 'product',
+         label: 'Product'
+       }, {
+         value: 'nuevo',
+         label: 'Nuevo'
+       }],
+       type: ''
     }
-  },
-  created(){
-    getConfig('params_print_product').then(({data}) => {
-      var data = JSON.parse(data.value)
-      this.params = data.params
-    }).catch((error) => { console.log(error) })
-
-    getConfig('format_print_product').then(({data}) => {
-      this.myHTML = data.value
-      this.$refs.editor.setContent(this.myHTML)
-    }).catch((error) => { this.$message.error('Error al registrar.') })
   },
   methods:{
     save(){
       this.myHTML = this.$refs.editor.getContent()
-      saveConfig('format_print_product', 'format_print',true, this.myHTML).then(({data}) => {
+      saveConfig('format_print_' + this.type, 'format_print',true, this.myHTML).then(({data}) => {
         this.$message({
            message: 'Registrado con éxito.',
            type: 'success'
@@ -72,7 +77,7 @@ export default {
       }).catch(error => {
         this.$message.error('Error al registrar.');
       })
-      saveConfig('params_print_product', 'params',false, this.params).then(({data}) => {
+      saveConfig('params_print_' + this.type, 'params',false, this.params).then(({data}) => {
         this.$message({
            message: 'Registrado con éxito.',
            type: 'success'
@@ -80,6 +85,27 @@ export default {
       }).catch(error => {
         this.$message.error('Error al registrar.');
       })
+    },
+    getData(){
+      if (this.type != "") {
+        getConfig('params_print_' + this.type).then(({data}) => {
+          var data = JSON.parse(data.value)
+          this.params = data.params
+        }).catch((error) => { console.log(error) })
+
+        getConfig('format_print_' + this.type).then(({data}) => {
+          this.myHTML = data.value
+          this.$refs.editor.setContent(this.myHTML)
+        }).catch((error) => { this.$message.error('Error al registrar.') })
+      }else{
+          this.reset()
+      }
+    },
+    reset(){
+      this.myHTML = ''
+      this.$refs.editor.setContent(this.myHTML)
+      this.params = []
+      this.type = ''
     }
   }
 }

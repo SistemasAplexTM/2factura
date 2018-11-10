@@ -88,3 +88,12 @@ Route::get('product/urlPrint', 'AplexProductController@urlPrint');
 Route::post('product/createFile', 'AplexProductController@createFile');
 Route::resource('product','AplexProductController')
   ->except(['index', 'create']);
+
+
+Route::prefix('shop')->as('shop.')
+->group(function () {
+  Route::get('init', 'AplexShopController@init')->name('init');
+  Route::get('data', 'AplexShopController@data')->name('data');
+});
+Route::resource('shop','AplexShopController')
+  ->except(['index', 'create']);

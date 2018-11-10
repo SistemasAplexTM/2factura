@@ -1,0 +1,55 @@
+{
+  "routePrefix": "shop",
+  "readSuffix": "data",
+  "crtNo": true,
+  "selectable": false,
+  "buttons": [
+    {
+      "type": "row",
+      "label": "Editar",
+      "icon": "el-icon-edit",
+      "class": "el-button el-button--primary el-button--small is-circle",
+      "event": "edit"
+    },
+    {
+      "type": "row",
+      "icon": "el-icon-delete",
+      "class": "el-button el-button--danger el-button--small is-circle",
+      "event": "destroy",
+      "confirmation" : true,
+      "message" : "This is your custom confirmation. Are you sure?"
+    }
+  ],
+  "columns": [
+    {
+      "label": "Razón social",
+      "name": "business_name",
+      "data": "business_name",
+      "meta": [ "searchable","sortable" ]
+    },
+    {
+      "label": "Dirección",
+      "name": "address",
+      "data": "address",
+      "meta": [ "searchable", "sortable" ]
+    },
+    {
+      "label": "Correo",
+      "name": "email",
+      "data": "email",
+      "meta": [ "searchable", "sortable" ]
+    },
+    {
+      "label": "Teléfono",
+      "name": "phone",
+      "data": "phone",
+      "meta": [ "searchable", "sortable"]
+    },
+    {
+      "label": "Celular",
+      "name": "mobile",
+      "data": "mobile",
+      "meta": [ "searchable", "sortable"]
+    }
+  ]
+}

@@ -5,6 +5,13 @@
         <router-link :to="{ path: 'productos/nuevo'}">
           <el-button icon="el-icon-plus" type="success" size="small">Crear</el-button>
         </router-link>
+        <div class="fr">
+          <el-tooltip class="item" effect="dark" content="Ir a la configuración" placement="left">
+            <router-link :to="{ path: 'configuracion_productos'}">
+              <el-button icon="el-icon-setting" type="default" size="small"></el-button>
+            </router-link>
+          </el-tooltip>
+        </div>
       </el-col>
     </el-row>
     <br>
@@ -47,7 +54,7 @@ export default {
       this.printer_product = data.value
     }).catch((error) => { console.log(error) })
 
-    getConfig('test_format_print').then(({data}) => {
+    getConfig('format_print_product').then(({data}) => {
       this.format_print = data.value
     }).catch((error) => { console.log(error) })
   },
@@ -63,7 +70,7 @@ export default {
             var exe = eval(data.substring(21))
             exe.print('useDefaultPrinter=0&printerName='+me.printer_product+'&printRotation=None&fileName='+name);
           }).catch((error) => { console.log(error) })
-        }).catch((error) => console.log(error))
+        }).catch((error) => { console.log(error) })
       }).catch((error) => { console.log(error) })
     },
     update(){

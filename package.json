@@ -33,6 +33,7 @@
         "css-element-queries": "^1.0.2",
         "element-ui": "^2.4.6",
         "js-cookie": "^2.2.0",
+        "liquor-tree": "^0.2.40",
         "normalize.css": "^8.0.0",
         "v-click-outside": "^2.0.1",
         "v-tooltip": "^2.0.0-rc.33",

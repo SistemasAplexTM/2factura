@@ -1,18 +1,18 @@
 webpackJsonp([22],{
 
-/***/ 1619:
+/***/ 1621:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(1737)
+  __webpack_require__(1739)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(1739)
+var __vue_script__ = __webpack_require__(1741)
 /* template */
-var __vue_template__ = __webpack_require__(1740)
+var __vue_template__ = __webpack_require__(1742)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52,13 +52,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 1737:
+/***/ 1739:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1738);
+var content = __webpack_require__(1740);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -79,7 +79,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 1738:
+/***/ 1740:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -94,12 +94,12 @@ exports.push([module.i, "\n.container-profile[data-v-6e525d56] {\n  /* backgroun
 
 /***/ }),
 
-/***/ 1739:
+/***/ 1741:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(25);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -158,12 +158,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     return {};
   },
 
-  computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])(['avatar']))
+  computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])(['avatar']))
 });
 
 /***/ }),
 
-/***/ 1740:
+/***/ 1742:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
