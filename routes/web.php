@@ -1,10 +1,10 @@
 <?php
 
 
-// Route::get('{any}', 'HomeController@index')->where('any', '.*');
+Route::get('{any}', 'HomeController@index')->where('any', '.*');
 
 
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
 Route::get('home/index', 'HomeController@index');
 Route::get('home/samples', 'HomeController@samples');
 Route::get('home/printersinfo', 'HomeController@printersinfo');

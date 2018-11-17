@@ -14,6 +14,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        return route('login');
+        return response()->json('Error al iniciar');
+        // return route('login');
     }
 }
